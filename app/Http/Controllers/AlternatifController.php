@@ -94,7 +94,7 @@ class AlternatifController extends Controller
 
             $alternatif = Alternatif::findOrFail($id);
             $alternatif->delete();
-            // Penilaian::truncate();
+            Penilaian::truncate();
         } catch (Exception $e) {
             Log::emergency("File:" . $e->getFile() . "Line:" . $e->getLine() . "Message:" . $e->getMessage());
             die("Gagal");

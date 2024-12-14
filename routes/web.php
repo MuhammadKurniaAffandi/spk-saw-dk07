@@ -38,3 +38,4 @@ Route::get('download-user-pdf', [App\Http\Controllers\UserController::class, 'do
 Route::get('download-kriteria-pdf', [App\Http\Controllers\KriteriaController::class, 'downloadPDF']);
 Route::get('/download-crips-pdf/{id}', [App\Http\Controllers\KriteriaController::class, 'downloadCripsPDF']);
 Route::get('download-penilaian-pdf', [App\Http\Controllers\PenilaianController::class, 'downloadPDF']);
+Route::get('/cetak-laporan/{id}', [App\Http\Controllers\LaporanController::class, 'cetakLaporan']);

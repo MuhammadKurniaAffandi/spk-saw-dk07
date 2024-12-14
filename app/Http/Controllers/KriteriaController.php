@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Kriteria;
 use App\Models\Crips;
+use App\Models\Penilaian;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Log;
 
@@ -98,10 +99,7 @@ class KriteriaController extends Controller
             }
             $kriteria->crips()->delete();
             $kriteria->delete();
-            // return back()->with('msg', 'Berhasil Menghapus Data');
-            //$kriteria->delete();
-
-            //Penilaian::truncate();
+            Penilaian::truncate();
         } catch (Exception $e) {
             Log::emergency("File:" . $e->getFile() . "Line:" . $e->getLine() . "Message:" . $e->getMessage());
             die("Gagal");
