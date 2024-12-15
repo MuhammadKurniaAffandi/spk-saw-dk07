@@ -34,12 +34,6 @@ class LaporanController extends Controller
 
     public function show($id)
     {
-        // $laporan = Laporan::where('periode', $periode)->get();
-
-        // Semua periode untuk dropdown
-        // $daftarPeriode = Laporan::orderBy('periode', 'desc')->pluck('periode')->unique();
-        // return view('admin.laporan.repot', compact('laporan', 'daftarPeriode', 'periode'));
-        // $data['crips'] = Crips::where('kriteria_id', $id)->paginate(10);
         $laporan = Laporan::findOrFail($id);
         $sortedData = collect($laporan['data']['ranking'])->sortByDesc(function ($value) {
             return array_sum($value);
@@ -66,15 +60,12 @@ class LaporanController extends Controller
     {
         setlocale(LC_ALL, 'IND');
         $tanggal = Carbon::now()->formatLocalized(' %d %B %Y');
-        $tanggalPeriode = Carbon::now()->formatLocalized(' %B %Y');
         $laporan = Laporan::findOrFail($id);
         $sortedData = collect($laporan['data']['ranking'])->sortByDesc(function ($value) {
             return array_sum($value);
         })->toArray();
-        // dd($laporan['data'], $laporan['data']['kriteria'], $laporan['data']['ranking'], $sortedData);
-
-        $pdf = PDF::loadView('admin.laporan.laporan-pdf', compact('laporan', 'tanggal', 'tanggalPeriode', 'sortedData'));
-        $pdf->setPaper('A3', 'potrait');
+        $pdf = PDF::loadView('admin.laporan.laporan-pdf', compact('laporan', 'tanggal', 'sortedData'));
+        $pdf->setPaper('A4', 'potrait');
         return $pdf->stream('laporan.pdf');
     }
 }

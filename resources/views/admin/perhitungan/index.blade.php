@@ -2,29 +2,11 @@
 @section('title', 'SPK Pemilihan Guru Terbaik')
 @section('content')
 
+    {{-- ** Awal Area Button ** --}}
     <div class="mb-4">
-
         <!-- Card Header - Accordion -->
         <div class="row">
-            {{-- <div class="col">
-                <form method="GET">
-                    @csrf
-                    <div class="form-group">
-                        <label for="start_date">Tanggal Awal:</label>
-                        <input type="date" name="start_date" id="start_date" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="end_date">Tanggal Akhir:</label>
-                        <input type="date" name="end_date" id="end_date" class="form-control" required>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Tampilkan Laporan</button>
-                    <a href="{{ URL::to('download-perhitungan-pdf') }}" target="_blank" class="btn btn-primary"><i
-                            class="fas fa-download fa-sm text-white-50"></i> Download Laporan</a>
-                </form>
-            </div> --}}
-            {{-- <a href="{{ URL::to('download-perhitungan-pdf') }}" target="_blank"
-            class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm float-right"><i
-                class="fas fa-download fa-sm text-white-50"></i> Download Laporan</a> --}}
+
             <div class="col">
                 @if (Session::has('msg'))
                     <div class="alert alert-info alert-dismissible fade show" role="alert">
@@ -44,7 +26,9 @@
             </div>
         </div>
     </div>
+    {{-- ** Akhir Area Button ** --}}
 
+    {{-- ** Awal Tabel Rating Kecocokan ** --}}
     <div class="card shadow mb-4">
         <!-- Card Header - Accordion -->
         <a href="#listkriteria" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true"
@@ -59,7 +43,10 @@
                     <table class="table table-bordered">
                         <thead>
                             <tr>
-                                <th class="text-center">Nama Alternatif</th>
+                                <th style="text-align: center; padding-bottom: 35px" rowspan="2">Nama Guru</th>
+                                <th class="text-center" colspan="{{ count($kriteria) }}">Kriteria</th>
+                            </tr>
+                            <tr>
                                 @foreach ($kriteria as $key => $value)
                                     <th class="text-center">{{ $value->nama_kriteria }}</th>
                                 @endforeach
@@ -81,8 +68,6 @@
                                 <tr>
                                     <td>Tidak ada data!</td>
                                 </tr>
-
-
                             @endforelse
                         </tbody>
                     </table>
@@ -90,7 +75,9 @@
             </div>
         </div>
     </div>
+    {{-- ** Akhir Tabel Rating Kecocokan ** --}}
 
+    {{-- ** Awal Tabel Normalisasi Matriks ** --}}
     <div class="card shadow mb-4">
         <!-- Card Header - Accordion -->
         <a href="#normalisasi" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true"
@@ -105,7 +92,11 @@
                     <table class="table table-bordered">
                         <thead>
                             <tr>
-                                <th>Alternatif / Kriteria</th>
+                                <th style="text-align: center; padding-bottom: 35px" rowspan="2">Nama Guru</th>
+                                <th class="text-center" colspan="{{ count($kriteria) }}">Kriteria</th>
+
+                            </tr>
+                            <tr>
                                 @foreach ($kriteria as $key => $value)
                                     <th>{{ $value->nama_kriteria }}</th>
                                 @endforeach
@@ -117,9 +108,6 @@
                                     <td>{{ $key }}</td>
                                     @foreach ($value as $key_1 => $value_1)
                                         <td class="text-center">
-                                            {{-- @if ($value[count($value) - 1] != $key_1)
-                                                {{ $value_1 }}
-                                @endif --}}
                                             {{ round($value_1, 2) }}
                                         </td>
                                     @endforeach
@@ -131,7 +119,9 @@
             </div>
         </div>
     </div>
+    {{-- ** Akhir Tabel Normalisasi Matriks ** --}}
 
+    {{-- ** Awal Tabel Tahap Perangkingan ** --}}
     <div class="card shadow mb-4">
         <!-- Card Header - Accordion -->
         <a href="#rank" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true"
@@ -146,18 +136,20 @@
                     <table class="table table-bordered">
                         <thead>
                             <tr>
-                                <th></th>
-                                @foreach ($kriteria as $key => $value)
-                                    <th class="text-center">{{ $value->nama_kriteria }}</th>
-                                @endforeach
-                                <th rowspan="2" style="text-align: center; padding-bottom: 45px">Total</th>
-                                <th rowspan="2" style="text-align: center; padding-bottom: 45px">Rank</th>
+                                <th class="text-bold" style="text-align: center; padding-bottom: 60px" rowspan="2">Nama
+                                    Guru</th>
+                                <th class="text-center" colspan="{{ count($kriteria) }}">Kriteria Dan Bobot</th>
+                                <th rowspan="2" style="text-align: center; padding-bottom: 60px">Nilai Akhir</th>
+                                <th rowspan="2" style="text-align: center; padding-bottom: 60px">Rangking</th>
                             </tr>
                             <tr>
-                                <th>Nama / Bobot</th>
                                 @foreach ($kriteria as $key => $value)
-                                    <th class="text-center">{{ round($value->bobot, 2) }} %</th>
+                                    <th class="text-center">{{ $value->nama_kriteria }}<br>{{ round($value->bobot, 2) }}%
+                                    </th>
                                 @endforeach
+
+                            </tr>
+                            <tr>
                             </tr>
                         </thead>
                         <tbody>
@@ -178,5 +170,35 @@
             </div>
         </div>
     </div>
+    {{-- ** Akhir Tabel Tahap Perangkingan ** --}}
 
 @stop
+
+{{-- ** Code yang tidak terpakai ** --}}
+{{-- <div class="col">
+                <form method="GET">
+                    @csrf
+                    <div class="form-group">
+                        <label for="start_date">Tanggal Awal:</label>
+                        <input type="date" name="start_date" id="start_date" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="end_date">Tanggal Akhir:</label>
+                        <input type="date" name="end_date" id="end_date" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Tampilkan Laporan</button>
+                    <a href="{{ URL::to('download-perhitungan-pdf') }}" target="_blank" class="btn btn-primary"><i
+                            class="fas fa-download fa-sm text-white-50"></i> Download Laporan</a>
+                </form>
+            </div> --}}
+{{-- <a href="{{ URL::to('download-perhitungan-pdf') }}" target="_blank"
+            class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm float-right"><i
+                class="fas fa-download fa-sm text-white-50"></i> Download Laporan</a>
+--}}
+{{-- @if ($value[count($value) - 1] != $key_1)
+            {{ $value_1 }}
+    @endif
+--}}
+
+{{-- ** Muhammad Kurnia Affandi ** --}}
+{{-- ** Instagram :  mk.affandi ** --}}

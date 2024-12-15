@@ -4,20 +4,22 @@
 
 
 
-
+    {{-- ** Awal Area Button ** --}}
     <div class="mb-4">
         <!-- Card Header - Accordion -->
         <div class="row">
             <div class="col">
                 <a href="{{ route('laporan.index') }}"
-                    class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm float-right"><i
-                        class="fas fa-arrow-alt-circle-left text-black-50"></i> Kembali</a>
+                    class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm float-right"><i
+                        class="fas fa-arrow-alt-circle-left text-white-50"></i> Kembali</a>
             </div>
         </div>
     </div>
+    {{-- ** Akhir Area Button ** --}}
 
 
     @if ($laporan['periode'])
+        {{-- ** Awal Tabel Rating Kecocokan ** --}}
         <div class="card shadow mb-4">
             <!-- Card Header - Accordion -->
             <a href="#listkriteria" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true"
@@ -32,7 +34,11 @@
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th class="text-center">Nama Alternatif</th>
+                                    <th style="text-align: center; padding-bottom: 35px" rowspan="2">Nama Guru</th>
+                                    <th class="text-center" colspan="{{ count($laporan['data']['kriteria']) }}">Kriteria
+                                    </th>
+                                </tr>
+                                <tr>
                                     @foreach ($laporan['data']['kriteria'] as $key => $value)
                                         <td class="text-center">{{ $value['nama_kriteria'] }}</td>
                                     @endforeach
@@ -62,7 +68,10 @@
                 </div>
             </div>
         </div>
+        {{-- ** Akhir Tabel Rating Kecocokan ** --}}
 
+
+        {{-- ** Awal Tabel Normalisasi Matriks ** --}}
         <div class="card shadow mb-4">
             <!-- Card Header - Accordion -->
             <a href="#normalisasi" class="d-block card-header py-3" data-toggle="collapse" role="button"
@@ -77,7 +86,11 @@
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th>Alternatif / Kriteria</th>
+                                    <th style="text-align: center; padding-bottom: 35px" rowspan="2">Nama Guru</th>
+                                    <th class="text-center" colspan="{{ count($laporan['data']['kriteria']) }}">Kriteria
+                                    </th>
+                                </tr>
+                                <tr>
                                     @foreach ($laporan['data']['kriteria'] as $key => $value)
                                         <th>{{ $value['nama_kriteria'] }}</th>
                                     @endforeach
@@ -104,7 +117,9 @@
                 </div>
             </div>
         </div>
+        {{-- ** Akhir Tabel Normalisasi Matriks ** --}}
 
+        {{-- ** Awal Tabel Tahap Perangkingan ** --}}
         <div class="card shadow mb-4">
             <!-- Card Header - Accordion -->
             <a href="#rank" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true"
@@ -120,17 +135,18 @@
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th></th>
-                                    @foreach ($laporan['data']['kriteria'] as $key => $value)
-                                        <th class="text-center">{{ $value['nama_kriteria'] }}</th>
-                                    @endforeach
-                                    <th rowspan="2" style="text-align: center; padding-bottom: 45px">Total</th>
-                                    <th rowspan="2" style="text-align: center; padding-bottom: 45px">Rank</th>
+                                    <th class="text-bold" style="text-align: center; padding-bottom: 60px" rowspan="2">
+                                        Nama
+                                        Guru</th>
+                                    <th class="text-center" colspan="{{ count($laporan['data']['kriteria']) }}">Kriteria Dan
+                                        Bobot</th>
+                                    <th rowspan="2" style="text-align: center; padding-bottom: 60px">Nilai Akhir</th>
+                                    <th rowspan="2" style="text-align: center; padding-bottom: 60px">Rangking</th>
                                 </tr>
                                 <tr>
-                                    <th>Nama / Bobot</th>
                                     @foreach ($laporan['data']['kriteria'] as $key => $value)
-                                        <th class="text-center">{{ round($value['bobot'], 2) }} %</th>
+                                        <th class="text-center">
+                                            {{ $value['nama_kriteria'] }}<br>{{ round($value['bobot'], 2) }}%</th>
                                     @endforeach
                                 </tr>
                             </thead>
@@ -152,6 +168,7 @@
                 </div>
             </div>
         </div>
+        {{-- ** Akhir Tabel Tahap Perangkingan ** --}}
     @else
         <div class="alert alert-warning">
             Tidak ada laporan untuk periode ini.
@@ -205,3 +222,9 @@
     </script>
 
 @stop
+
+{{-- ** Code yang tidak terpakai ** --}}
+
+
+{{-- ** Muhammad Kurnia Affandi ** --}}
+{{-- ** Instagram :  mk.affandi ** --}}

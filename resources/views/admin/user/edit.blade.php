@@ -7,7 +7,7 @@
                 <!-- Card Header - Accordion -->
                 <a href="#tambahkriteria" class="d-block card-header py-3" data-toggle="collapse" role="button"
                     aria-expanded="true" aria-controls="collapseCardExample">
-                    <h6 class="m-0 font-weight-bold text-primary">Edit User {{ $users->name }}</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Ubah Pengguna : {{ $users->name }}</h6>
                 </a>
 
                 <!-- Card Content - Collapse -->
@@ -26,9 +26,9 @@
                             @csrf
                             @method('put')
                             <div class="form-group">
-                                <label for="name">Name</label>
+                                <label for="name">Nama Pengguna</label>
                                 <input type="text" class="form-control @error('name') is-invalid @enderror"
-                                    name="name" value="{{ $users->name }}">
+                                    name="name" value="{{ $users->name }}" autocomplete="off">
 
                                 @error('name')
                                     <div class="invalid-feedback" role="alert">
@@ -37,7 +37,33 @@
                                 @enderror
 
                             </div>
-                            {{-- <div class="form-group">
+
+
+                            <div class="form-group">
+                                <label for="keterangan">Keterangan</label>
+                                <input type="text" class="form-control @error('keterangan') is-invalid @enderror"
+                                    name="keterangan" value="{{ $users->keterangan }}" autocomplete="off">
+
+                                @error('keterangan')
+                                    <div class="invalid-feedback" role="alert">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+
+                            </div>
+                            <button class="btn btn-primary">Simpan</button>
+                            <a href="{{ route('user.index') }}" class="btn btn-success">Kembali</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    @stop
+
+
+    {{-- ** Code yang tidak terpakai ** --}}
+    {{-- <div class="form-group">
                                 <label for="email">Email</label>
                                 <input type="email" class="form-control @error('email') is-invalid @enderror"
                                     name="email" value="{{ $users->email }}">
@@ -50,20 +76,8 @@
 
                             </div> --}}
 
-                            <div class="form-group">
-                                <label for="keterangan">Keterangan</label>
-                                <input type="text" class="form-control @error('keterangan') is-invalid @enderror"
-                                    name="keterangan" value="{{ $users->keterangan }}">
 
-                                @error('keterangan')
-                                    <div class="invalid-feedback" role="alert">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
-
-                            </div>
-
-                            {{-- <div class="form-group">
+    {{-- <div class="form-group">
                                 <label for="nama">Telepon</label>
                                 <input type="number" class="form-control @error('telepon') is-invalid @enderror"
                                     name="telepon" value="{{ $alternatif->telepon }}">
@@ -75,12 +89,3 @@
                                 @enderror
 
                             </div> --}}
-                            <button class="btn btn-primary">Simpan</button>
-                            <a href="{{ route('user.index') }}" class="btn btn-success">Kembali</a>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    @stop

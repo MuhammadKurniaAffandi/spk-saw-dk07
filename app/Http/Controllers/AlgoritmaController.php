@@ -3,12 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Alternatif;
-use App\Models\Crips;
 use App\Models\Kriteria;
 use App\Models\Laporan;
 use App\Models\Penilaian;
-use Barryvdh\DomPDF\Facade\Pdf;
-// use PDF;
 use Carbon\Carbon;
 use Exception;
 use Illuminate\Http\Request;
@@ -27,14 +24,15 @@ class AlgoritmaController extends Controller
 
         // **Ambil data alternatif dan kriteria**
         $alternatif = Alternatif::with('penilaian.crips')->get();
-        $kriteria = Kriteria::with('crips')->orderBy('nama_kriteria', 'ASC')->get();
+        $kriteria = Kriteria::with('crips')->orderBy('id', 'ASC')->get();
         $penilaian = Penilaian::with('crips', 'alternatif')->get();
 
         if (count($penilaian) == 0) {
             return redirect(route('penilaian.index'));
         }
 
-        // mencari min max normalisasi
+
+        // ** Mencari min max normalisasi **
         foreach ($kriteria as $key => $value) {
             foreach ($penilaian as $key_1 => $value_1) {
                 if ($value->id == $value_1->crips->kriteria_id) {
@@ -47,8 +45,7 @@ class AlgoritmaController extends Controller
             }
         }
 
-
-        //Normalisasi
+        // ** Normalisasi **
         foreach ($penilaian as $key_1 => $value_1) {
             foreach ($kriteria as $key => $value) {
                 if ($value->id == $value_1->crips->kriteria_id) {
@@ -62,7 +59,7 @@ class AlgoritmaController extends Controller
         }
 
 
-        // Perangkingan
+        // ** Perangkingan **
         foreach ($normalisasi as $key => $value) {
             foreach ($kriteria as $key_1 => $value_1) {
                 $rank[$key][] = ($value[$value_1->id] * $value_1->bobot);
@@ -77,7 +74,6 @@ class AlgoritmaController extends Controller
         $sortedData = collect($ranking)->sortByDesc(function ($value) {
             return array_sum($value);
         })->toArray();
-        // dd($sortedData);
 
         return view('admin.perhitungan.index', compact('alternatif', 'kriteria', 'normalisasi', 'sortedData'));
     }
@@ -86,10 +82,11 @@ class AlgoritmaController extends Controller
     // **Awal Menu Laporan**
     public function simpanLaporan()
     {
-
-        $periode = Carbon::now()->format('d-m-Y'); // Menggunakan format YYYY-MM
+        setlocale(LC_ALL, 'IND');
+        $periode = Carbon::now()->formatLocalized('%B %Y');
+        // $periode = Carbon::now()->format('d-m-Y'); // Menggunakan format YYYY-MM
         $alternatif = Alternatif::with('penilaian.crips')->get();
-        $kriteria = Kriteria::with('crips')->orderBy('nama_kriteria', 'ASC')->get();
+        $kriteria = Kriteria::with('crips')->orderBy('id', 'ASC')->get();
         $penilaian = Penilaian::with('crips', 'alternatif')->get();
 
         if (count($penilaian) == 0) {
@@ -97,7 +94,7 @@ class AlgoritmaController extends Controller
         }
 
         try {
-            // mencari min max normalisasi
+            // ** Mencari min max normalisasi
             foreach ($kriteria as $key => $value) {
                 foreach ($penilaian as $key_1 => $value_1) {
                     if ($value->id == $value_1->crips->kriteria_id) {
@@ -111,7 +108,7 @@ class AlgoritmaController extends Controller
             }
 
 
-            //Normalisasi
+            // ** Normalisasi
             foreach ($penilaian as $key_1 => $value_1) {
                 foreach ($kriteria as $key => $value) {
                     if ($value->id == $value_1->crips->kriteria_id) {
@@ -125,7 +122,7 @@ class AlgoritmaController extends Controller
             }
 
 
-            // Perangkingan
+            // ** Perangkingan
             foreach ($normalisasi as $key => $value) {
                 foreach ($kriteria as $key_1 => $value_1) {
                     $rank[$key][] = ($value[$value_1->id] * $value_1->bobot);
@@ -140,21 +137,15 @@ class AlgoritmaController extends Controller
             $sortedData = collect($ranking)->sortByDesc(function ($value) {
                 return array_sum($value);
             })->toArray();
+
+            // ** Simpan ke database **
             $data = [
                 'alternatif' => $alternatif,
                 'kriteria' => $kriteria,
                 'normalisasi' => $normalisasi,
                 'ranking' => $sortedData,
             ];
-            // Simpan ke database
-            // Laporan::updateOrCreate(
-            //     [
-            //         'periode' => $periode,
-            //     ],
-            //     [
-            //         'data' => $data,
-            //     ]
-            // );
+
             Laporan::create([
                 'periode' => $periode,
                 'data' => $data,
@@ -233,4 +224,14 @@ class AlgoritmaController extends Controller
         $pdf->setPaper('A3', 'potrait');
         return $pdf->stream('perhitungan.pdf');
     } */
+
+    // Simpan ke database
+    /* Laporan::updateOrCreate(
+        [
+            'periode' => $periode,
+        ],
+        [
+            'data' => $data,
+        ]
+    ); */
 }

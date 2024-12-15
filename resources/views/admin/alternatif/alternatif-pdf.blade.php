@@ -9,7 +9,7 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 
-
+    {{-- ** Awal Custom Style ** --}}
     <style type="text/css">
         .garis1 {
             border-top: 3px solid black;
@@ -70,7 +70,7 @@
         #listkriteria td,
         #listkriteria th {
             border: 1px solid #000;
-            text-align: left;
+            text-align: center;
             padding: 8px;
 
         }
@@ -86,6 +86,7 @@
             word-wrap: break-word;
         }
     </style>
+    {{-- ** Akhir Custom Style ** --}}
 
 
 </head>
@@ -123,8 +124,8 @@
                                 <th>No</th>
                                 <th>Nama Guru</th>
                                 <th>NIP</th>
-                                <th>Alamat</th>
-                                <th>Telepon</th>
+                                <th>Jenis Kelamin</th>
+                                <th>Tanggal Lahir</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -134,8 +135,8 @@
                                     <td class="no_urut">{{ $no++ }}</td>
                                     <td>{{ $row->nama_alternatif }}</td>
                                     <td>{{ $row->nip }}</td>
-                                    <td class="wrapper_text">{{ $row->alamat }}</td>
-                                    <td>{{ $row->telepon }}</td>
+                                    <td class="wrapper_text">{{ $row->jenis_kelamin }}</td>
+                                    <td>{{ \Carbon\Carbon::parse($row->tanggal_lahir)->format('d-m-Y') }}</td>
                                 </tr>
                             @endforeach
                         </tbody>

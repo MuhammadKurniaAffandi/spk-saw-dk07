@@ -31,8 +31,8 @@ class AlternatifController extends Controller
 
             'nama_alternatif' => 'required|string',
             'nip' => 'required|string',
-            'alamat' => 'required|string',
-            'telepon' => 'required|string',
+            'jenis_kelamin' => 'required|string',
+            'tanggal_lahir' => 'required|string',
 
         ]);
 
@@ -41,8 +41,8 @@ class AlternatifController extends Controller
             $alternatif = new Alternatif();
             $alternatif->nama_alternatif = $request->nama_alternatif;
             $alternatif->nip = $request->nip;
-            $alternatif->alamat = $request->alamat;
-            $alternatif->telepon = $request->telepon;
+            $alternatif->jenis_kelamin = $request->jenis_kelamin;
+            $alternatif->tanggal_lahir = $request->tanggal_lahir;
             $alternatif->save();
             return back()->with('msg', 'Berhasil Menambahkan Data');
         } catch (Exception $e) {
@@ -66,8 +66,8 @@ class AlternatifController extends Controller
 
             'nama_alternatif' => 'required|string',
             'nip' => 'required|string',
-            'alamat' => 'required|string',
-            'telepon' => 'required|string',
+            'jenis_kelamin' => 'required|string',
+            'tanggal_lahir' => 'required|string',
 
         ]);
 
@@ -77,8 +77,8 @@ class AlternatifController extends Controller
             $alternatif->update([
                 'nama_alternatif' => $request->nama_alternatif,
                 'nip' => $request->nip,
-                'alamat' => $request->alamat,
-                'telepon' => $request->telepon
+                'jenis_kelamin' => $request->jenis_kelamin,
+                'tanggal_lahir' => $request->tanggal_lahir
             ]);
             return back()->with('msg', 'Berhasil Mengubah Data');
         } catch (Exception $e) {

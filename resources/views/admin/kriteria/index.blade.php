@@ -45,10 +45,13 @@
 
                             </div>
                             <div class="form-group">
-                                <label for="nama">Attribut Kriteria</label>
-                                <select name="attribut" id="" class="form-control" required>
-                                    <option>Benefit</option>
-                                    <option>Cost</option>
+                                <label for="attribut">Atribut Kriteria</label>
+                                <select name="attribut" id="attribut"
+                                    class="form-control @error('attribut') is-invalid @enderror" required>
+                                    <option value="" disabled selected>Pilih Atribut</option>
+                                    <option value="Benefit" {{ old('attribut') == 'Benefit' ? 'selected' : '' }}>Benefit
+                                    </option>
+                                    <option value="Cost" {{ old('attribut') == 'Cost' ? 'selected' : '' }}>Cost</option>
                                 </select>
 
                                 @error('attribut')
@@ -70,7 +73,7 @@
                                 @enderror
 
                             </div>
-                            <button class="btn btn-primary">Simpan</button>
+                            <button class="btn btn-primary btn-block mt-3">Simpan</button>
                         </form>
                     </div>
                 </div>
@@ -82,7 +85,7 @@
                 <!-- Card Header - Accordion -->
                 <a href="#listkriteria" class="d-block card-header py-3" data-toggle="collapse" role="button"
                     aria-expanded="true" aria-controls="collapseCardExample">
-                    <h6 class="m-0 font-weight-bold text-primary">List Kriteria</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Daftar Kriteria</h6>
                 </a>
 
                 <!-- Card Content - Collapse -->
@@ -91,7 +94,7 @@
                         <div class="table-responsive">
                             <a href="{{ URL::to('download-kriteria-pdf') }}" target="_blank"
                                 class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm float-left"><i
-                                    class="fas fa-download fa-sm text-white-50"></i> Download Laporan</a>
+                                    class="fas fa-download fa-sm text-white-50"></i> Cetak Data Kriteria</a>
 
                             <table class="table table-striped table-hover" id="DataTable" data-paging="false">
                                 <thead>

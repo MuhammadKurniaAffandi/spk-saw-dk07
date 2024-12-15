@@ -7,6 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+    {{-- ** Awal Custom Style ** --}}
     <style type="text/css">
         .garis1 {
             border-top: 3px solid black;
@@ -33,12 +35,13 @@
         /* custom style table */
         #kop_surat {
             box-sizing: border-box;
-            width: 100%;
         }
 
         .box1 {
             float: left;
-            padding-left: 90%;
+            width: 20%;
+            padding-left: 25%;
+
         }
 
         .box2 {
@@ -82,6 +85,7 @@
             word-wrap: break-word;
         }
     </style>
+    {{-- ** Akhir Custom Style ** --}}
 
 
 </head>
@@ -108,7 +112,8 @@
 
         <hr class="garis1" />
         <div style="margin-top: 25px; margin-bottom: 25px;">
-            <center><strong><u>RANGKING GURU TERBAIK PERIODE : {{ strtoupper($tanggalPeriode) }}</u></strong></center>
+            <center><strong><u>RANGKING GURU TERBAIK PERIODE :
+                        {{ strtoupper($laporan['periode']) }}</u></strong></center>
         </div>
 
         <div class="collapse show" id="rank">
@@ -117,29 +122,19 @@
                     <table class="table table-bordered" id="DataTable">
                         <thead>
                             <tr>
-                                <th rowspan="2">Nama Guru</th>
-                                @foreach ($laporan['data']['kriteria'] as $key => $value)
-                                    <th>{{ $value['nama_kriteria'] }}</th>
-                                @endforeach
-                                <th rowspan="2">Total Penilaian</th>
-                                <th rowspan="2">Peringkat</th>
+                                <th>Nama Guru</th>
+                                <th>Nilai Akhir</th>
+                                <th>Peringkat</th>
                             </tr>
-                            <tr>
-                                {{-- <th>Nama / Bobot</th> --}}
-                                @foreach ($laporan['data']['kriteria'] as $key => $value)
-                                    <th>{{ $value['bobot'] }}%</th>
-                                @endforeach
-                            </tr>
+
                         </thead>
                         <tbody>
                             @php $no = 1;@endphp
+
                             @foreach ($sortedData as $key => $value)
                                 <tr>
                                     <td class="wrapper_text">{{ $key }}</td>
-
-                                    @foreach ($value as $key_1 => $value_1)
-                                        <td class="no_urut ">{{ round($value_1, 2) }}</td>
-                                    @endforeach
+                                    <td class="no_urut ">{{ round(end($value), 2) }}</td>
                                     <td class="no_urut">{{ $no++ }}</td>
                                 </tr>
                             @endforeach

@@ -38,7 +38,7 @@
 
                             </div>
                             <div class="form-group">
-                                <label for="nama">Attribut Kriteria</label>
+                                <label for="nama">Attribut</label>
                                 <select name="attribut" id="" class="form-control" required>
                                     <option {{ $kriteria->attribut == 'Benefit' ? 'selected' : '' }}>Benefit</option>
                                     <option {{ $kriteria->attribut == 'Cost' ? 'selected' : '' }}>Cost</option>
@@ -52,7 +52,7 @@
 
                             </div>
                             <div class="form-group">
-                                <label for="bobot">Bobot Kriteria</label>
+                                <label for="bobot">Bobot</label>
                                 <input type="text" class="form-control @error('bobot') is-invalid @enderror"
                                     name="bobot" value="{{ $kriteria->bobot }}">
 

@@ -33,7 +33,7 @@
                         <form action="{{ route('user.store') }}" method="post">
                             @csrf
                             <div class="form-group">
-                                <label for="name">Name</label>
+                                <label for="name">Nama pengguna</label>
                                 <input type="text" class="form-control @error('name') is-invalid @enderror"
                                     name="name" value="{{ old('name') }}" autocomplete="off">
 
@@ -104,7 +104,7 @@
                 <!-- Card Header - Accordion -->
                 <a href="#listuser" class="d-block card-header py-3" data-toggle="collapse" role="button"
                     aria-expanded="true" aria-controls="collapseCardExample">
-                    <h6 class="m-0 font-weight-bold text-primary">List Pengguna</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Daftar Pengguna</h6>
                 </a>
 
                 <!-- Card Content - Collapse -->
@@ -113,12 +113,12 @@
                         <div class="table-responsive">
                             <a href="{{ URL::to('download-user-pdf') }}" target="_blank"
                                 class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm float-left"><i
-                                    class="fas fa-download fa-sm text-white-50"></i> Download Laporan</a>
+                                    class="fas fa-download fa-sm text-white-50"></i> Cetak Data Pengguna</a>
                             <table class="table table-striped table-hover" id="DataTable" data-paging="false">
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Name</th>
+                                        <th>Nama Pengguna</th>
                                         <th>Email</th>
                                         <th>Keterangan</th>
                                         <th>Aksi</th>

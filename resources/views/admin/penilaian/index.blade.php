@@ -10,7 +10,7 @@
             <div class="col">
                 <a href="{{ URL::to('download-penilaian-pdf') }}" target="_blank"
                     class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm float-right"><i
-                        class="fas fa-download fa-sm text-white-50"></i> Download Laporan</a>
+                        class="fas fa-download fa-sm text-white-50"></i> Cetak Data Penilaian</a>
             </div>
         </div>
     </div>
@@ -19,7 +19,7 @@
         <!-- Card Header - Accordion -->
         <a href="#listkriteria" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true"
             aria-controls="collapseCardExample">
-            <h6 class="m-0 font-weight-bold text-primary">Penilaian Alternatif</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Penilaian Guru</h6>
         </a>
 
         <!-- Card Content - Collapse -->
@@ -38,13 +38,13 @@
                     <form action="{{ route('penilaian.store') }}" method="post">
                         @csrf
                         <div class="float-right">
-                            <button class="btn btn-sm btn-primary">Simpan</button>
+                            <button class="btn btn-sm btn-primary">Proses Perhitungan</button>
                         </div>
                         <br><br>
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th>Nama Alternatif</th>
+                                    <th>Nama Guru</th>
                                     @foreach ($kriteria as $key => $value)
                                         <th>{{ $value->nama_kriteria }}</th>
                                     @endforeach

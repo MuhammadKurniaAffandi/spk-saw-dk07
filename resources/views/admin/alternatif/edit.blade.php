@@ -7,7 +7,7 @@
                 <!-- Card Header - Accordion -->
                 <a href="#tambahkriteria" class="d-block card-header py-3" data-toggle="collapse" role="button"
                     aria-expanded="true" aria-controls="collapseCardExample">
-                    <h6 class="m-0 font-weight-bold text-primary">Edit Alternatif {{ $alternatif->nama_alternatif }}</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Ubah Data Guru {{ $alternatif->nama_alternatif }}</h6>
                 </a>
 
                 <!-- Card Content - Collapse -->
@@ -51,11 +51,17 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="nama">Alamat</label>
-                                <input type="text" class="form-control @error('alamat') is-invalid @enderror"
-                                    name="alamat" value="{{ $alternatif->alamat }}">
+                                <label for="jenis_kelamin">Jenis Kelamin</label>
+                                <select class="form-control @error('jenis_kelamin') is-invalid @enderror"
+                                    name="jenis_kelamin">
+                                    <option value="" disabled selected>Pilih Jenis Kelamin</option>
+                                    <option value="Laki-laki"
+                                        {{ $alternatif->jenis_kelamin == 'Laki-laki' ? 'selected' : '' }}>Laki-laki</option>
+                                    <option value="Perempuan"
+                                        {{ $alternatif->jenis_kelamin == 'Perempuan' ? 'selected' : '' }}>Perempuan</option>
+                                </select>
 
-                                @error('alamat')
+                                @error('jenis_kelamin')
                                     <div class="invalid-feedback" role="alert">
                                         {{ $message }}
                                     </div>
@@ -64,23 +70,24 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="nama">Telepon</label>
-                                <input type="number" class="form-control @error('telepon') is-invalid @enderror"
-                                    name="telepon" value="{{ $alternatif->telepon }}">
+                                <label for="tanggal_lahir">Tanggal Lahir</label>
+                                <input type="date" class="form-control @error('tanggal_lahir') is-invalid @enderror"
+                                    name="tanggal_lahir"
+                                    value="{{ $alternatif->tanggal_lahir ? \Carbon\Carbon::parse($alternatif->tanggal_lahir)->format('d-m-Y') : '' }}">
 
-                                @error('telepon')
+                                @error('tanggal_lahir')
                                     <div class="invalid-feedback" role="alert">
                                         {{ $message }}
                                     </div>
                                 @enderror
-
                             </div>
-                            <button class="btn btn-primary">Simpan</button>
+                            <button class="btn btn-primary mr-2">Simpan</button>
                             <a href="{{ route('alternatif.index') }}" class="btn btn-success">Kembali</a>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
-    @stop
+@stop

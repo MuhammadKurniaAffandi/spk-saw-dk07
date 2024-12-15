@@ -25,16 +25,17 @@
         </div>
 
         <!-- Nav Item - Tables -->
-        <li class="nav-item {{ request()->Is('alternatif*') ? 'active' : '' }}">
-            <a class="nav-link" href="{{ route('alternatif.index') }}">
-                <i class="fas fa-fw fa-users"></i>
-                <span>Data Alternatif</span></a>
-        </li>
         <li class="nav-item {{ request()->Is('kriteria*') ? 'active' : '' }}">
             <a class="nav-link" href="{{ route('kriteria.index') }}">
                 <i class="fas fa-fw fa-code"></i>
                 <span>Data Kriteria</span></a>
         </li>
+        <li class="nav-item {{ request()->Is('alternatif*') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ route('alternatif.index') }}">
+                <i class="fas fa-fw fa-users"></i>
+                <span>Data Alternatif</span></a>
+        </li>
+
 
 
 

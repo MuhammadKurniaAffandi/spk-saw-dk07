@@ -15,7 +15,7 @@
                 <!-- Card Header - Accordion -->
                 <a href="#tambahalternatif" class="d-block card-header py-3" data-toggle="collapse" role="button"
                     aria-expanded="true" aria-controls="collapseCardExample">
-                    <h6 class="m-0 font-weight-bold text-primary">Tambah Data Alternatif</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Tambah Data Guru</h6>
                 </a>
 
                 <!-- Card Content - Collapse -->
@@ -36,20 +36,17 @@
                                 <label for="nama">Nama Guru</label>
                                 <input type="text" class="form-control @error('nama_alternatif') is-invalid @enderror"
                                     name="nama_alternatif" value="{{ old('nama_alternatif') }}" autocomplete="off">
-
                                 @error('nama_alternatif')
                                     <div class="invalid-feedback" role="alert">
                                         {{ $message }}
                                     </div>
                                 @enderror
-
                             </div>
 
                             <div class="form-group">
                                 <label for="nama">NIP</label>
                                 <input type="number" class="form-control @error('nip') is-invalid @enderror" name="nip"
                                     value="{{ old('nip') }}" autocomplete="off">
-
                                 @error('nip')
                                     <div class="invalid-feedback" role="alert">
                                         {{ $message }}
@@ -59,32 +56,38 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="nama">Alamat</label>
-                                <input type="text" class="form-control @error('alamat') is-invalid @enderror"
-                                    name="alamat" value="{{ old('alamat') }}" autocomplete="off">
-
-                                @error('alamat')
+                                <label for="jenis_kelamin">Jenis Kelamin</label>
+                                <select class="form-control @error('jenis_kelamin') is-invalid @enderror"
+                                    name="jenis_kelamin">
+                                    <option value="">-- Pilih Jenis Kelamin --</option>
+                                    <option value="Laki-laki" {{ old('jenis_kelamin') == 'Laki-laki' ? 'selected' : '' }}>
+                                        Laki-laki</option>
+                                    <option value="Perempuan" {{ old('jenis_kelamin') == 'Perempuan' ? 'selected' : '' }}>
+                                        Perempuan</option>
+                                </select>
+                                @error('jenis_kelamin')
                                     <div class="invalid-feedback" role="alert">
                                         {{ $message }}
                                     </div>
                                 @enderror
-
                             </div>
 
                             <div class="form-group">
-                                <label for="nama">Telepon</label>
-                                <input type="number" class="form-control @error('telepon') is-invalid @enderror"
-                                    name="telepon" value="{{ old('telepon') }}" autocomplete="off">
+                                <label for="tanggal_lahir">Tanggal Lahir</label>
+                                <input type="date" class="form-control @error('tanggal_lahir') is-invalid @enderror"
+                                    name="tanggal_lahir"
+                                    value="{{ old('tanggal_lahir') ? \Carbon\Carbon::parse(old('tanggal_lahir'))->format('d-m-Y') : '' }}"
+                                    autocomplete="off">
 
-                                @error('telepon')
+                                @error('tanggal_lahir')
                                     <div class="invalid-feedback" role="alert">
                                         {{ $message }}
                                     </div>
                                 @enderror
-
                             </div>
 
-                            <button class="btn btn-primary">Simpan</button>
+                            <button class="btn btn-primary btn-block mt-3">Simpan</button>
+
                         </form>
                     </div>
                 </div>
@@ -96,7 +99,7 @@
                 <!-- Card Header - Accordion -->
                 <a href="#listkriteria" class="d-block card-header py-3" data-toggle="collapse" role="button"
                     aria-expanded="true" aria-controls="collapseCardExample">
-                    <h6 class="m-0 font-weight-bold text-primary">List Guru</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Daftar Guru</h6>
                 </a>
 
                 <!-- Card Content - Collapse -->
@@ -105,15 +108,15 @@
                         <div class="table-responsive">
                             <a href="{{ URL::to('download-alternatif-pdf') }}" target="_blank"
                                 class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm float-left"><i
-                                    class="fas fa-download fa-sm text-white-50"></i> Download Laporan</a>
+                                    class="fas fa-download fa-sm text-white-50"></i> Cetak Data Guru</a>
                             <table class="table table-striped table-hover" id="DataTable" data-paging="false">
                                 <thead>
-                                    <tr>
+                                    <tr class="text-center">
                                         <th>No</th>
                                         <th>Nama Guru</th>
                                         <th>NIP</th>
-                                        <th>Alamat</th>
-                                        <th>Telepon</th>
+                                        <th>Jenis Kelamin</th>
+                                        <th>Tanggal Lahir</th>
                                         <th>Aksi</th>
 
                                     </tr>
@@ -121,14 +124,14 @@
                                 <tbody>
                                     @php $no = 1; @endphp
                                     @foreach ($alternatif as $row)
-                                        <tr>
+                                        <tr class="text-center">
                                             <td>{{ $no++ }}</td>
-                                            <td>{{ $row->nama_alternatif }}</td>
+                                            <td class="text-left">{{ $row->nama_alternatif }}</td>
                                             <td>{{ $row->nip }}</td>
-                                            <td>
-                                                <div class="text-wrap" style="width: 6rem">{{ $row->alamat }}</div>
+                                            <td class="text-left">
+                                                <div class="text-wrap" style="width: 6rem">{{ $row->jenis_kelamin }}</div>
                                             </td>
-                                            <td>{{ $row->telepon }}</td>
+                                            <td>{{ \Carbon\Carbon::parse($row->tanggal_lahir)->format('d-m-Y') }}</td>
                                             <td>
                                                 <a href="{{ route('alternatif.edit', $row->id) }}"
                                                     class="btn btn-sm btn-circle btn-warning">

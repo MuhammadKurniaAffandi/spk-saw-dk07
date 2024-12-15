@@ -12,7 +12,7 @@
                 <!-- Card Header - Accordion -->
                 <a href="#tambahcrips" class="d-block card-header py-3" data-toggle="collapse" role="button"
                     aria-expanded="true" aria-controls="collapseCardExample">
-                    <h6 class="m-0 font-weight-bold text-primary">Tambah Crips</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Tambah Sub Kriteria</h6>
                 </a>
 
                 <!-- Card Content - Collapse -->
@@ -31,7 +31,7 @@
                             @csrf
                             @method('put')
                             <div class="form-group">
-                                <label for="nama">Nama Crips</label>
+                                <label for="nama">Nama Sub Kriteria</label>
                                 <input type="text" class="form-control @error('nama_crips') is-invalid @enderror"
                                     name="nama_crips" value="{{ $crips->nama_crips }}">
 
@@ -43,7 +43,7 @@
 
                             </div>
                             <div class="form-group">
-                                <label for="bobot">Bobot Crips</label>
+                                <label for="bobot">Bobot</label>
                                 <input type="text" class="form-control @error('bobot') is-invalid @enderror"
                                     name="bobot" value="{{ $crips->bobot }}">
 
@@ -61,12 +61,5 @@
                 </div>
             </div>
         </div>
-
-
     </div>
-    </div>
-
-
-
-
 @stop
