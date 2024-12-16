@@ -74,9 +74,9 @@
                 <div class="collapse show" id="listcrips">
                     <div class="card-body">
                         <div class="table-responsive">
-                            <a href="{{ URL::to('download-crips-pdf') }}" target="_blank"
+                            {{-- <a href="{{ URL::to('download-crips-pdf') }}" target="_blank"
                                 class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm float-left"><i
-                                    class="fas fa-download fa-sm text-white-50"></i> Cetak Data Sub Kriteria</a>
+                                    class="fas fa-download fa-sm text-white-50"></i> Cetak Data Sub Kriteria</a> --}}
 
                             <table class="table table-striped table-hover" id="DataTable" data-paging="false">
                                 <thead>
