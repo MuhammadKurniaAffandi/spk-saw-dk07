@@ -58,8 +58,9 @@ class LaporanController extends Controller
 
     public function cetakLaporan($id)
     {
-        setlocale(LC_ALL, 'IND');
-        $tanggal = Carbon::now()->formatLocalized(' %d %B %Y');
+        // setlocale(LC_ALL, 'IND');
+        // $tanggal = Carbon::now()->formatLocalized(' %d %B %Y');
+        $tanggal = Carbon::now()->translatedFormat('d F Y'); // ** Output: "01 Maret 2019" **
         $laporan = Laporan::findOrFail($id);
         $sortedData = collect($laporan['data']['ranking'])->sortByDesc(function ($value) {
             return array_sum($value);

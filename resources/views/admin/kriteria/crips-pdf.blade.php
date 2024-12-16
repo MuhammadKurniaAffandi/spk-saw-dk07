@@ -121,7 +121,7 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Nama Crips / Sub Kriteria</th>
+                                <th>Rentang Nilai</th>
                                 <th>Bobot</th>
 
                             </tr>

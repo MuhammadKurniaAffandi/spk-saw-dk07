@@ -48,7 +48,10 @@
 
                                 @forelse ($laporan['data']['alternatif'] as $key => $value)
                                     <tr>
-                                        <td>{{ $value['nama_alternatif'] }}</td>
+                                        <td class="text-left">
+                                            <div class="text-wrap" style="width: 6rem">{{ $value['nama_alternatif'] }}
+                                            </div>
+                                        </td>
                                         @if (count($value['penilaian']) > 0)
                                             @foreach ($value['penilaian'] as $key => $value)
                                                 <td class="text-center">
@@ -100,7 +103,10 @@
                             <tbody>
                                 @foreach ($laporan['data']['normalisasi'] as $key => $value)
                                     <tr>
-                                        <td>{{ $key }}</td>
+                                        <td class="text-left">
+                                            <div class="text-wrap" style="width: 6rem">{{ $key }}
+                                            </div>
+                                        </td>
                                         @foreach ($value as $key_1 => $value_1)
                                             <td class="text-center">
                                                 {{-- @if ($value[count($value) - 1] != $key_1)
@@ -155,7 +161,10 @@
 
                                 @foreach ($sortedData as $key => $value)
                                     <tr>
-                                        <td>{{ $key }}</td>
+                                        <td class="text-left">
+                                            <div class="text-wrap" style="width: 6rem">{{ $key }}
+                                            </div>
+                                        </td>
                                         @foreach ($value as $key_1 => $value_1)
                                             <td class="text-center">{{ round($value_1, 2) }}</td>
                                         @endforeach

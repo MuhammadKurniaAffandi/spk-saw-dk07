@@ -132,6 +132,7 @@
                             @php $no = 1;@endphp
 
                             @foreach ($sortedData as $key => $value)
+                                {{-- {{ dd($sortedData) }} --}}
                                 <tr>
                                     <td class="wrapper_text">{{ $key }}</td>
                                     <td class="no_urut ">{{ round(end($value), 2) }}</td>

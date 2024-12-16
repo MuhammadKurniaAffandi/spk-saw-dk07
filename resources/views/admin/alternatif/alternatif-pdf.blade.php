@@ -84,6 +84,7 @@
             min-width: 150px;
             max-width: 150px;
             word-wrap: break-word;
+            text-align: left;
         }
     </style>
     {{-- ** Akhir Custom Style ** --}}
@@ -133,9 +134,9 @@
                             @foreach ($alternatif as $row)
                                 <tr>
                                     <td class="no_urut">{{ $no++ }}</td>
-                                    <td>{{ $row->nama_alternatif }}</td>
+                                    <td class="wrapper_text">{{ $row->nama_alternatif }}</td>
                                     <td>{{ $row->nip }}</td>
-                                    <td class="wrapper_text">{{ $row->jenis_kelamin }}</td>
+                                    <td>{{ $row->jenis_kelamin }}</td>
                                     <td>{{ \Carbon\Carbon::parse($row->tanggal_lahir)->format('d-m-Y') }}</td>
                                 </tr>
                             @endforeach

@@ -3,7 +3,7 @@
         <!-- Sidebar - Brand -->
         <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
 
-            <div class="sidebar-brand-text mx-3">SPK Pemilihan Guru Terbaik</div>
+            <div class="sidebar-brand-text mx-3">BRILIAN</div>
         </a>
 
         <!-- Divider -->
@@ -33,7 +33,7 @@
         <li class="nav-item {{ request()->Is('alternatif*') ? 'active' : '' }}">
             <a class="nav-link" href="{{ route('alternatif.index') }}">
                 <i class="fas fa-fw fa-users"></i>
-                <span>Data Alternatif</span></a>
+                <span>Data Guru/Alternatif</span></a>
         </li>
 
 

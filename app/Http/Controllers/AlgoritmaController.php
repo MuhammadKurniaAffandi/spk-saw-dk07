@@ -82,9 +82,9 @@ class AlgoritmaController extends Controller
     // **Awal Menu Laporan**
     public function simpanLaporan()
     {
-        setlocale(LC_ALL, 'IND');
-        $periode = Carbon::now()->formatLocalized('%B %Y');
-        // $periode = Carbon::now()->format('d-m-Y'); // Menggunakan format YYYY-MM
+        // setlocale(LC_ALL, 'IND');
+        // $periode = Carbon::now()->formatLocalized('%B %Y');
+        $periode = Carbon::now()->translatedFormat('F Y'); // ** Output: "Maret 2019" **
         $alternatif = Alternatif::with('penilaian.crips')->get();
         $kriteria = Kriteria::with('crips')->orderBy('id', 'ASC')->get();
         $penilaian = Penilaian::with('crips', 'alternatif')->get();

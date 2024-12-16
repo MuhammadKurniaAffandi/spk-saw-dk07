@@ -31,7 +31,7 @@
                             @csrf
                             <input type="hidden" value="{{ $kriteria->id }}" name="kriteria_id">
                             <div class="form-group">
-                                <label for="nama">Nama Crips</label>
+                                <label for="nama">Rentang Nilai</label>
                                 <input type="text" class="form-control @error('nama_crips') is-invalid @enderror"
                                     name="nama_crips" value="{{ old('nama_crips') }}" autocomplete="off">
 
@@ -43,7 +43,7 @@
 
                             </div>
                             <div class="form-group">
-                                <label for="bobot">Bobot Crips</label>
+                                <label for="bobot">Bobot</label>
                                 <input type="text" class="form-control @error('bobot') is-invalid @enderror"
                                     name="bobot" value="{{ old('bobot') }}" autocomplete="off">
 
@@ -82,7 +82,7 @@
                                 <thead>
                                     <tr class="text-center">
                                         <th>No</th>
-                                        <th>Nama Sub Kriteria</th>
+                                        <th>Rentang Nilai</th>
                                         <th>Bobot</th>
                                         <th>Aksi</th>
                                     </tr>

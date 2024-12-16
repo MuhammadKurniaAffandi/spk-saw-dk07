@@ -121,7 +121,7 @@
                                 <th>No</th>
                                 <th>Nama Kriteria</th>
                                 <th>Attribut</th>
-                                <th>Bobot %</th>
+                                <th>Bobot%</th>
                             </tr>
                         </thead>
                         <tbody>

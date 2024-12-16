@@ -7,7 +7,7 @@
                 <!-- Card Header - Accordion -->
                 <a href="#tambahkriteria" class="d-block card-header py-3" data-toggle="collapse" role="button"
                     aria-expanded="true" aria-controls="collapseCardExample">
-                    <h6 class="m-0 font-weight-bold text-primary">Ubah Data Guru {{ $alternatif->nama_alternatif }}</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Ubah Data Guru : {{ $alternatif->nama_alternatif }}</h6>
                 </a>
 
                 <!-- Card Content - Collapse -->
@@ -28,7 +28,7 @@
                             <div class="form-group">
                                 <label for="nama">Nama Guru</label>
                                 <input type="text" class="form-control @error('nama_alternatif') is-invalid @enderror"
-                                    name="nama_alternatif" value="{{ $alternatif->nama_alternatif }}">
+                                    name="nama_alternatif" value="{{ $alternatif->nama_alternatif }}" autocomplete="off">
 
                                 @error('nama_alternatif')
                                     <div class="invalid-feedback" role="alert">

@@ -53,7 +53,11 @@
                             <tbody>
                                 @forelse ($alternatif as $alt => $valt)
                                     <tr>
-                                        <td>{{ $valt->nama_alternatif }}</td>
+
+                                        <td>
+                                            <div class="text-wrap" style="width: 6rem">{{ $valt->nama_alternatif }}
+                                            </div>
+                                        </td>
                                         @foreach ($kriteria as $key => $value)
                                             <td>
                                                 <select name="crips_id[{{ $valt->id }}][]" class="form-control">

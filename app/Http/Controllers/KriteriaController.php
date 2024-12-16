@@ -115,8 +115,9 @@ class KriteriaController extends Controller
 
     public function downloadPDF()
     {
-        setlocale(LC_ALL, 'IND');
-        $tanggal = Carbon::now()->formatLocalized(' %d %B %Y');
+        // setlocale(LC_ALL, 'IND');
+        // $tanggal = Carbon::now()->formatLocalized(' %d %B %Y');
+        $tanggal = Carbon::now()->translatedFormat('d F Y'); // ** Output: "01 Maret 2019" **
         $kriteria = Kriteria::get();
 
         $pdf = PDF::loadView('admin.kriteria.kriteria-pdf', compact('kriteria', 'tanggal'));
@@ -126,8 +127,9 @@ class KriteriaController extends Controller
 
     public function downloadCripsPDF($id)
     {
-        setlocale(LC_ALL, 'IND');
-        $tanggal = Carbon::now()->formatLocalized(' %d %B %Y');
+        // setlocale(LC_ALL, 'IND');
+        // $tanggal = Carbon::now()->formatLocalized(' %d %B %Y');
+        $tanggal = Carbon::now()->translatedFormat('d F Y'); // ** Output: "01 Maret 2019" **
         $kriteria = Kriteria::with('crips')->findOrFail($id);
         $crips = Crips::where('kriteria_id', $id)->get();
         $cripsId = Crips::findOrFail($id);

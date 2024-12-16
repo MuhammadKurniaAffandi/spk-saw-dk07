@@ -128,8 +128,9 @@
                         </thead>
                         <tbody>
                             @forelse ($alternatif as $alt => $valt)
+                                {{-- {{ dd($valt) }} --}}
                                 <tr>
-                                    <td>{{ $valt->nama_alternatif }}</td>
+                                    <td class="wrapper_text">{{ $valt->nama_alternatif }}</td>
                                     @if (count($valt->penilaian) > 0)
                                         @foreach ($valt->penilaian as $key => $value)
                                             <td class="no_urut">

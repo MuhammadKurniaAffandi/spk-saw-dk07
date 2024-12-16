@@ -103,8 +103,9 @@ class AlternatifController extends Controller
 
     public function downloadPDF()
     {
-        setlocale(LC_ALL, 'IND');
-        $tanggal = Carbon::now()->formatLocalized('%d %B %Y');
+        // setlocale(LC_ALL, 'IND');
+        // $tanggal = Carbon::now()->formatLocalized('%d %B %Y');
+        $tanggal = Carbon::now()->translatedFormat('d F Y'); // ** Output: "01 Maret 2019" **
         $alternatif = Alternatif::with('penilaian.crips')->get();
 
         $pdf = Pdf::loadView('admin.alternatif.alternatif-pdf', compact('alternatif', 'tanggal'));

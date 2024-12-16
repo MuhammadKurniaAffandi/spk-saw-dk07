@@ -12,7 +12,7 @@
                 <!-- Card Header - Accordion -->
                 <a href="#tambahcrips" class="d-block card-header py-3" data-toggle="collapse" role="button"
                     aria-expanded="true" aria-controls="collapseCardExample">
-                    <h6 class="m-0 font-weight-bold text-primary">Tambah Sub Kriteria</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Ubah Rentang Nilai</h6>
                 </a>
 
                 <!-- Card Content - Collapse -->
@@ -20,7 +20,7 @@
                     <div class="card-body">
                         @if (Session::has('msg'))
                             <div class="alert alert-info alert-dismissible fade show" role="alert">
-                                <strong>Infor</strong> {{ Session::get('msg') }}
+                                <strong>{{ Session::get('msg') }}</strong>
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -31,7 +31,7 @@
                             @csrf
                             @method('put')
                             <div class="form-group">
-                                <label for="nama">Nama Sub Kriteria</label>
+                                <label for="nama">Rentang Nilai</label>
                                 <input type="text" class="form-control @error('nama_crips') is-invalid @enderror"
                                     name="nama_crips" value="{{ $crips->nama_crips }}">
 

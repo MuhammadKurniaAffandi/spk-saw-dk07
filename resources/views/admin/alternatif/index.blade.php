@@ -126,10 +126,13 @@
                                     @foreach ($alternatif as $row)
                                         <tr class="text-center">
                                             <td>{{ $no++ }}</td>
-                                            <td class="text-left">{{ $row->nama_alternatif }}</td>
+                                            <td class="text-left">
+                                                <div class="text-wrap" style="width: 6rem">{{ $row->nama_alternatif }}
+                                                </div>
+                                            </td>
                                             <td>{{ $row->nip }}</td>
                                             <td class="text-left">
-                                                <div class="text-wrap" style="width: 6rem">{{ $row->jenis_kelamin }}</div>
+                                                {{ $row->jenis_kelamin }}
                                             </td>
                                             <td>{{ \Carbon\Carbon::parse($row->tanggal_lahir)->format('d-m-Y') }}</td>
                                             <td>
