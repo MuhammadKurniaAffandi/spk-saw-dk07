@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('title', 'SPK Pemilihan Guru Terbaik ', $kriteria->nama_kriteria)
 @section('content')
-    <div class="row">
-        <div class="col-md-4">
+    <div class="">
+        <div class="col-md-6">
             <div class="card shadow mb-4">
                 <!-- Card Header - Accordion -->
                 <a href="#tambahkriteria" class="d-block card-header py-3" data-toggle="collapse" role="button"
@@ -63,6 +63,7 @@
                                 @enderror
 
                             </div>
+
                             <button class="btn btn-primary">Simpan</button>
                             <a href="{{ route('kriteria.index') }}" class="btn btn-success">Kembali</a>
                         </form>

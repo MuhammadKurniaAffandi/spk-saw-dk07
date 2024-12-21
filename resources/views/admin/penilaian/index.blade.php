@@ -9,7 +9,7 @@
         <div class="row">
             <div class="col">
                 <a href="{{ URL::to('download-penilaian-pdf') }}" target="_blank"
-                    class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm float-right"><i
+                    class="d-sm-inline-block btn btn-sm btn-success shadow-sm float-right"><i
                         class="fas fa-download fa-sm text-white-50"></i> Cetak Data Penilaian</a>
             </div>
         </div>

@@ -17,7 +17,7 @@
                     </div>
                 @endif
                 <form action="{{ route('perhitungan.simpan') }}" method="POST"
-                    class="d-none d-sm-inline-block  shadow-sm float-right">
+                    class="d-sm-inline-block  shadow-sm float-right">
                     @csrf
                     <button type="submit" class="btn btn-success">
                         <i class="fas fa-save fa-sm text-white-50"></i> Simpan Perhitungan
