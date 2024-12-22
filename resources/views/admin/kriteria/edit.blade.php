@@ -64,7 +64,7 @@
 
                             </div>
 
-                            <button class="btn btn-primary">Simpan</button>
+                            <button class="btn btn-primary mr-2">Simpan</button>
                             <a href="{{ route('kriteria.index') }}" class="btn btn-success">Kembali</a>
                         </form>
                     </div>

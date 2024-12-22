@@ -50,8 +50,7 @@
                                             <td>{{ $row['periode'] }}</td>
                                             <td>
                                                 <a href="{{ route('laporan.show', $row['id']) }}"
-                                                    class="btn btn-sm btn-circle btn-info" target="_blank"><i
-                                                        class="fas fa-eye"></i></a>
+                                                    class="btn btn-sm btn-circle btn-info"><i class="fas fa-eye"></i></a>
                                                 <a href="{{ route('laporan.destroy', $row['id']) }}"
                                                     class="btn btn-sm btn-circle btn-danger hapus">
                                                     <i class="fa fa-trash"></i>

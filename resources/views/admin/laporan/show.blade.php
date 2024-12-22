@@ -10,7 +10,7 @@
         <div class="row">
             <div class="col">
                 <a href="{{ route('laporan.index') }}"
-                    class="d-sm-inline-block btn btn-sm btn-primary shadow-sm float-right"><i
+                    class="d-sm-inline-block btn btn-sm btn-primary shadow-sm float-left"><i
                         class="fas fa-arrow-alt-circle-left text-white-50"></i> Kembali</a>
             </div>
         </div>

@@ -9,7 +9,7 @@
         <div class="row">
             <div class="col">
                 <a href="{{ URL::to('download-penilaian-pdf') }}" target="_blank"
-                    class="d-sm-inline-block btn btn-sm btn-success shadow-sm float-right"><i
+                    class="d-sm-inline-block btn btn-sm btn-success shadow-sm float-left"><i
                         class="fas fa-download fa-sm text-white-50"></i> Cetak Data Penilaian</a>
             </div>
         </div>
@@ -37,9 +37,8 @@
 
                     <form action="{{ route('penilaian.store') }}" method="post">
                         @csrf
-                        <div class="float-right">
-                            <button class="btn btn-sm btn-primary">Proses Perhitungan</button>
-                        </div>
+                        <button class="d-sm-inline-block btn btn-sm btn-primary shadow-sm float-left">Proses
+                            Perhitungan</button>
                         <br><br>
                         <table class="table">
                             <thead>
