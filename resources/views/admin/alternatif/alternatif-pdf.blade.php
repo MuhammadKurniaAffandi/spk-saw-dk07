@@ -113,7 +113,7 @@
         </table>
         <hr class="garis1" />
         <div style="margin-top: 25px; margin-bottom: 25px;">
-            <center><strong><u>Daftar Guru</u></strong></center>
+            <center><strong>DATA GURU SDN DURI KEPA 07</strong></center>
         </div>
 
         <div class="collapse show" id="listkriteria">
@@ -124,9 +124,9 @@
                             <tr>
                                 <th>No</th>
                                 <th>Nama Guru</th>
-                                <th>NIP</th>
-                                <th>Jenis Kelamin</th>
-                                <th>Tanggal Lahir</th>
+                                <th>Jabatan</th>
+                                <th>Kelas</th>
+                                {{-- <th>Tanggal Lahir</th> --}}
                             </tr>
                         </thead>
                         <tbody>
@@ -135,9 +135,9 @@
                                 <tr>
                                     <td class="no_urut">{{ $no++ }}</td>
                                     <td class="wrapper_text">{{ $row->nama_alternatif }}</td>
-                                    <td>{{ $row->nip }}</td>
-                                    <td>{{ $row->jenis_kelamin }}</td>
-                                    <td>{{ \Carbon\Carbon::parse($row->tanggal_lahir)->format('d-m-Y') }}</td>
+                                    <td>{{ $row->jabatan }}</td>
+                                    <td>{{ $row->kelas }}</td>
+                                    {{-- <td>{{ \Carbon\Carbon::parse($row->tanggal_lahir)->format('d-m-Y') }}</td> --}}
                                 </tr>
                             @endforeach
                         </tbody>

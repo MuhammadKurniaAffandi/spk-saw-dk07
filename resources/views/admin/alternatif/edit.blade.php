@@ -37,12 +37,13 @@
                                 @enderror
 
                             </div>
-                            <div class="form-group">
-                                <label for="nama">NIP</label>
-                                <input type="number" class="form-control @error('nip') is-invalid @enderror" name="nip"
-                                    value="{{ $alternatif->nip }}">
 
-                                @error('nip')
+                            <div class="form-group">
+                                <label for="jabatan">Jabatan</label>
+                                <input type="text" class="form-control @error('jabatan') is-invalid @enderror"
+                                    name="jabatan" value="{{ $alternatif->jabatan }}">
+
+                                @error('jabatan')
                                     <div class="invalid-feedback" role="alert">
                                         {{ $message }}
                                     </div>
@@ -50,7 +51,34 @@
 
                             </div>
 
+
                             <div class="form-group">
+                                <label for="kelas">Kelas</label>
+                                <input type="text" class="form-control @error('kelas') is-invalid @enderror"
+                                    name="kelas" value="{{ $alternatif->kelas }}">
+
+                                @error('kelas')
+                                    <div class="invalid-feedback" role="alert">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+
+                            </div>
+
+
+                            <button class="btn btn-primary mr-2">Simpan</button>
+                            <a href="{{ route('alternatif.index') }}" class="btn btn-success">Kembali</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+@stop
+
+{{-- ** Code yang tidak terpakai** --}}
+{{-- <div class="form-group">
                                 <label for="jenis_kelamin">Jenis Kelamin</label>
                                 <select class="form-control @error('jenis_kelamin') is-invalid @enderror"
                                     name="jenis_kelamin">
@@ -67,9 +95,9 @@
                                     </div>
                                 @enderror
 
-                            </div>
+                            </div> --}}
 
-                            <div class="form-group">
+{{-- <div class="form-group">
                                 <label for="tanggal_lahir">Tanggal Lahir</label>
                                 <input type="date" class="form-control @error('tanggal_lahir') is-invalid @enderror"
                                     name="tanggal_lahir"
@@ -80,14 +108,4 @@
                                         {{ $message }}
                                     </div>
                                 @enderror
-                            </div>
-                            <button class="btn btn-primary mr-2">Simpan</button>
-                            <a href="{{ route('alternatif.index') }}" class="btn btn-success">Kembali</a>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-@stop
+                            </div> --}}

@@ -30,9 +30,9 @@ class AlternatifController extends Controller
         $this->validate($request, [
 
             'nama_alternatif' => 'required|string',
-            'nip' => 'required|string',
-            'jenis_kelamin' => 'required|string',
-            'tanggal_lahir' => 'required|string',
+            'jabatan' => 'required|string',
+            'kelas' => 'required|string',
+            // 'tanggal_lahir' => 'required|string',
 
         ]);
 
@@ -40,9 +40,9 @@ class AlternatifController extends Controller
 
             $alternatif = new Alternatif();
             $alternatif->nama_alternatif = $request->nama_alternatif;
-            $alternatif->nip = $request->nip;
-            $alternatif->jenis_kelamin = $request->jenis_kelamin;
-            $alternatif->tanggal_lahir = $request->tanggal_lahir;
+            $alternatif->jabatan = $request->jabatan;
+            $alternatif->kelas = $request->kelas;
+            // $alternatif->tanggal_lahir = $request->tanggal_lahir;
             $alternatif->save();
             return back()->with('msg', 'Berhasil Menambahkan Data');
         } catch (Exception $e) {
@@ -65,9 +65,9 @@ class AlternatifController extends Controller
         $this->validate($request, [
 
             'nama_alternatif' => 'required|string',
-            'nip' => 'required|string',
-            'jenis_kelamin' => 'required|string',
-            'tanggal_lahir' => 'required|string',
+            'jabatan' => 'required|string',
+            'kelas' => 'required|string',
+            // 'tanggal_lahir' => 'required|string',
 
         ]);
 
@@ -76,9 +76,9 @@ class AlternatifController extends Controller
             $alternatif = Alternatif::findOrFail($id);
             $alternatif->update([
                 'nama_alternatif' => $request->nama_alternatif,
-                'nip' => $request->nip,
-                'jenis_kelamin' => $request->jenis_kelamin,
-                'tanggal_lahir' => $request->tanggal_lahir
+                'jabatan' => $request->jabatan,
+                'kelas' => $request->kelas,
+                // 'tanggal_lahir' => $request->tanggal_lahir
             ]);
             return back()->with('msg', 'Berhasil Mengubah Data');
         } catch (Exception $e) {

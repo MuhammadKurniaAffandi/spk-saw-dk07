@@ -44,10 +44,10 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="nama">NIP</label>
-                                <input type="number" class="form-control @error('nip') is-invalid @enderror" name="nip"
-                                    value="{{ old('nip') }}" autocomplete="off">
-                                @error('nip')
+                                <label for="jabatan">Jabatan</label>
+                                <input type="text" class="form-control @error('jabatan') is-invalid @enderror"
+                                    name="jabatan" value="{{ old('jabatan') }}" autocomplete="off">
+                                @error('jabatan')
                                     <div class="invalid-feedback" role="alert">
                                         {{ $message }}
                                     </div>
@@ -56,35 +56,18 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="jenis_kelamin">Jenis Kelamin</label>
-                                <select class="form-control @error('jenis_kelamin') is-invalid @enderror"
-                                    name="jenis_kelamin">
-                                    <option value="">-- Pilih Jenis Kelamin --</option>
-                                    <option value="Laki-laki" {{ old('jenis_kelamin') == 'Laki-laki' ? 'selected' : '' }}>
-                                        Laki-laki</option>
-                                    <option value="Perempuan" {{ old('jenis_kelamin') == 'Perempuan' ? 'selected' : '' }}>
-                                        Perempuan</option>
-                                </select>
-                                @error('jenis_kelamin')
+                                <label for="kelas">Kelas</label>
+                                <input type="text" class="form-control @error('kelas') is-invalid @enderror"
+                                    name="kelas" value="{{ old('kelas') }}" autocomplete="off">
+                                @error('kelas')
                                     <div class="invalid-feedback" role="alert">
                                         {{ $message }}
                                     </div>
                                 @enderror
+
                             </div>
 
-                            <div class="form-group">
-                                <label for="tanggal_lahir">Tanggal Lahir</label>
-                                <input type="date" class="form-control @error('tanggal_lahir') is-invalid @enderror"
-                                    name="tanggal_lahir"
-                                    value="{{ old('tanggal_lahir') ? \Carbon\Carbon::parse(old('tanggal_lahir'))->format('d-m-Y') : '' }}"
-                                    autocomplete="off">
 
-                                @error('tanggal_lahir')
-                                    <div class="invalid-feedback" role="alert">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
-                            </div>
 
                             <button class="btn btn-primary btn-block mt-3">Simpan</button>
 
@@ -99,7 +82,7 @@
                 <!-- Card Header - Accordion -->
                 <a href="#listkriteria" class="d-block card-header py-3" data-toggle="collapse" role="button"
                     aria-expanded="true" aria-controls="collapseCardExample">
-                    <h6 class="m-0 font-weight-bold text-primary">Daftar Guru</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">DATA GURU SDN DURI KEPA 07</h6>
                 </a>
 
                 <!-- Card Content - Collapse -->
@@ -114,9 +97,8 @@
                                     <tr class="text-center">
                                         <th>No</th>
                                         <th>Nama Guru</th>
-                                        <th>NIP</th>
-                                        <th>Jenis Kelamin</th>
-                                        <th>Tanggal Lahir</th>
+                                        <th>Jabatan</th>
+                                        <th>Kelas</th>
                                         <th>Aksi</th>
 
                                     </tr>
@@ -130,11 +112,10 @@
                                                 <div class="text-wrap" style="width: 6rem">{{ $row->nama_alternatif }}
                                                 </div>
                                             </td>
-                                            <td>{{ $row->nip }}</td>
+                                            <td>{{ $row->jabatan }}</td>
                                             <td class="text-left">
-                                                {{ $row->jenis_kelamin }}
+                                                {{ $row->kelas }}
                                             </td>
-                                            <td>{{ \Carbon\Carbon::parse($row->tanggal_lahir)->format('d-m-Y') }}</td>
                                             <td>
                                                 <a href="{{ route('alternatif.edit', $row->id) }}"
                                                     class="btn btn-sm btn-circle btn-warning">
@@ -214,3 +195,39 @@
     </script>
 
 @stop
+
+
+{{-- ** Code yang tidak terpakai ** --}}
+{{-- <div class="form-group">
+                                <label for="jenis_kelamin">Jenis Kelamin</label>
+                                <select class="form-control @error('jenis_kelamin') is-invalid @enderror"
+                                    name="jenis_kelamin">
+                                    <option value="">-- Pilih Jenis Kelamin --</option>
+                                    <option value="Laki-laki" {{ old('jenis_kelamin') == 'Laki-laki' ? 'selected' : '' }}>
+                                        Laki-laki</option>
+                                    <option value="Perempuan" {{ old('jenis_kelamin') == 'Perempuan' ? 'selected' : '' }}>
+                                        Perempuan</option>
+                                </select>
+                                @error('jenis_kelamin')
+                                    <div class="invalid-feedback" role="alert">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div> --}}
+
+{{-- <div class="form-group">
+                                <label for="tanggal_lahir">Tanggal Lahir</label>
+                                <input type="date" class="form-control @error('tanggal_lahir') is-invalid @enderror"
+                                    name="tanggal_lahir"
+                                    value="{{ old('tanggal_lahir') ? \Carbon\Carbon::parse(old('tanggal_lahir'))->format('d-m-Y') : '' }}"
+                                    autocomplete="off">
+
+                                @error('tanggal_lahir')
+                                    <div class="invalid-feedback" role="alert">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div> --}}
+
+{{-- <td>{{ \Carbon\Carbon::parse($row->tanggal_lahir)->format('d-m-Y') }}</td>
+                                             --}}

@@ -42,7 +42,7 @@
                         <br><br>
                         <table class="table">
                             <thead>
-                                <tr>
+                                <tr class="text-center">
                                     <th>Nama Guru</th>
                                     @foreach ($kriteria as $key => $value)
                                         <th>{{ $value->nama_kriteria }}</th>
@@ -52,7 +52,6 @@
                             <tbody>
                                 @forelse ($alternatif as $alt => $valt)
                                     <tr>
-
                                         <td>
                                             <div class="text-wrap" style="width: 6rem">{{ $valt->nama_alternatif }}
                                             </div>
