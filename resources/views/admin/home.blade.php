@@ -99,7 +99,7 @@
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Penerapan Metode <i>Simple additive Weighting</i><br>Dalam Sistem
                 Pendukung
-                Keputusan Pemilihan Guru Terbaik<br>Pada SDN DURI KEPA 07 Pagi</h1>
+                Keputusan Pemilihan Guru Terbaik<br>Pada SDN Duri Kepa 07</h1>
 
         </div>
     </div>
