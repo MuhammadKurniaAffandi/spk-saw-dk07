@@ -52,10 +52,7 @@
                             <tbody>
                                 @forelse ($guru as $alt => $valt)
                                     <tr>
-                                        <td>
-                                            <div class="text-wrap" style="width: 6rem">{{ $valt->nama_guru }}
-                                            </div>
-                                        </td>
+                                        <td class="text-left">{{ $valt->nama_guru }}</td>
                                         @foreach ($kriteria as $key => $value)
                                             <td>
                                                 <select name="crips_id[{{ $valt->id }}][]" class="form-control">

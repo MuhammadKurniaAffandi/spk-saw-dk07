@@ -54,10 +54,7 @@
                         <tbody>
                             @forelse ($guru as $alt => $valt)
                                 <tr>
-                                    <td class="text-left">
-                                        <div class="text-wrap" style="width: 6rem">{{ $valt->nama_guru }}
-                                        </div>
-                                    </td>
+                                    <td class="text-left">{{ $valt->nama_guru }}</td>
                                     @if (count($valt->penilaian) > 0)
                                         @foreach ($valt->penilaian as $key => $value)
                                             <td class="text-center">
@@ -107,10 +104,7 @@
                         <tbody>
                             @foreach ($normalisasi as $key => $value)
                                 <tr>
-                                    <td class="text-left">
-                                        <div class="text-wrap" style="width: 6rem">{{ $key }}
-                                        </div>
-                                    </td>
+                                    <td class="text-left">{{ $key }}</td>
                                     @foreach ($value as $key_1 => $value_1)
                                         <td class="text-center">
                                             {{ round($value_1, 2) }}
@@ -169,10 +163,7 @@
 
                             @foreach ($sortedData as $key => $value)
                                 <tr>
-                                    <td class="text-left">
-                                        <div class="text-wrap" style="width: 6rem">{{ $key }}
-                                        </div>
-                                    </td>
+                                    <td class="text-left">{{ $key }}</td>
                                     <td class="text-center">{{ round(end($value), 2) }}</td>
                                     {{-- @foreach ($value as $key_1 => $value_1)
                                         <td class="text-center">{{ round($value_1, 2) }}</td>

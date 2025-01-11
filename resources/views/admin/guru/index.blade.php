@@ -108,14 +108,9 @@
                                     @foreach ($guru as $row)
                                         <tr class="text-center">
                                             <td>{{ $no++ }}</td>
-                                            <td class="text-left">
-                                                <div class="text-wrap" style="width: 6rem">{{ $row->nama_guru }}
-                                                </div>
-                                            </td>
+                                            <td class="text-left">{{ $row->nama_guru }}</td>
                                             <td>{{ $row->jabatan }}</td>
-                                            <td>
-                                                {{ $row->kelas }}
-                                            </td>
+                                            <td>{{ $row->kelas }}</td>
                                             <td>
                                                 <a href="{{ route('guru.edit', $row->id) }}"
                                                     class="btn btn-sm btn-circle btn-warning">
