@@ -30,13 +30,13 @@
                             </div>
                         @endif
 
-                        <form action="{{ route('alternatif.store') }}" method="post">
+                        <form action="{{ route('guru.store') }}" method="post">
                             @csrf
                             <div class="form-group">
                                 <label for="nama">Nama Guru</label>
-                                <input type="text" class="form-control @error('nama_alternatif') is-invalid @enderror"
-                                    name="nama_alternatif" value="{{ old('nama_alternatif') }}" autocomplete="off">
-                                @error('nama_alternatif')
+                                <input type="text" class="form-control @error('nama_guru') is-invalid @enderror"
+                                    name="nama_guru" value="{{ old('nama_guru') }}" autocomplete="off">
+                                @error('nama_guru')
                                     <div class="invalid-feedback" role="alert">
                                         {{ $message }}
                                     </div>
@@ -82,14 +82,14 @@
                 <!-- Card Header - Accordion -->
                 <a href="#listkriteria" class="d-block card-header py-3" data-toggle="collapse" role="button"
                     aria-expanded="true" aria-controls="collapseCardExample">
-                    <h6 class="m-0 font-weight-bold text-primary">DATA GURU SDN DURI KEPA 07</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">DAFTAR GURU SDN DURI KEPA 07</h6>
                 </a>
 
                 <!-- Card Content - Collapse -->
                 <div class="collapse show" id="listkriteria">
                     <div class="card-body">
                         <div class="table-responsive">
-                            <a href="{{ URL::to('download-alternatif-pdf') }}" target="_blank"
+                            <a href="{{ URL::to('download-guru-pdf') }}" target="_blank"
                                 class="d-sm-inline-block btn btn-sm btn-success shadow-sm float-left"><i
                                     class="fas fa-download fa-sm text-white-50"></i> Cetak Data Guru</a>
                             <table class="table table-striped table-hover" id="DataTable" data-paging="false">
@@ -105,24 +105,24 @@
                                 </thead>
                                 <tbody>
                                     @php $no = 1; @endphp
-                                    @foreach ($alternatif as $row)
+                                    @foreach ($guru as $row)
                                         <tr class="text-center">
                                             <td>{{ $no++ }}</td>
                                             <td class="text-left">
-                                                <div class="text-wrap" style="width: 6rem">{{ $row->nama_alternatif }}
+                                                <div class="text-wrap" style="width: 6rem">{{ $row->nama_guru }}
                                                 </div>
                                             </td>
                                             <td>{{ $row->jabatan }}</td>
-                                            <td class="text-left">
+                                            <td>
                                                 {{ $row->kelas }}
                                             </td>
                                             <td>
-                                                <a href="{{ route('alternatif.edit', $row->id) }}"
+                                                <a href="{{ route('guru.edit', $row->id) }}"
                                                     class="btn btn-sm btn-circle btn-warning">
                                                     <i class="fa fa-edit"></i>
                                                 </a>
 
-                                                <a href="{{ route('alternatif.destroy', $row->id) }}"
+                                                <a href="{{ route('guru.destroy', $row->id) }}"
                                                     class="btn btn-sm btn-circle btn-danger hapus">
                                                     <i class="fa fa-trash"></i>
                                                 </a>
@@ -133,7 +133,7 @@
                                 </tbody>
                             </table>
                             <div class="d-flex justify-content-end">
-                                {{ $alternatif->links() }}
+                                {{ $guru->links() }}
                             </div>
                         </div>
 
@@ -180,7 +180,7 @@
                                         icon: "success",
                                     }).then((willDelete) => {
                                         window.location =
-                                            "{{ route('alternatif.index') }}"
+                                            "{{ route('guru.index') }}"
                                     });
                                 }
                             })

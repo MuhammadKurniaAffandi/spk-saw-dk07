@@ -132,10 +132,10 @@ class KriteriaController extends Controller
         $tanggal = Carbon::now()->translatedFormat('d F Y'); // ** Output: "01 Maret 2019" **
         $kriteria = Kriteria::with('crips')->findOrFail($id);
         $crips = Crips::where('kriteria_id', $id)->get();
-        $cripsId = Crips::findOrFail($id);
+        // $cripsId = Crips::findOrFail($id);
 
 
-        $pdf = PDF::loadView('admin.kriteria.crips-pdf', compact('kriteria', 'tanggal', 'crips', 'cripsId'));
+        $pdf = PDF::loadView('admin.kriteria.crips-pdf', compact('kriteria', 'tanggal', 'crips'));
         $pdf->setPaper('A4', 'potrait');
         return $pdf->stream('crips.pdf');
     }

@@ -131,10 +131,10 @@
                         </thead>
                         <tbody>
                             @php $no = 1; @endphp
-                            @foreach ($alternatif as $row)
+                            @foreach ($guru as $row)
                                 <tr>
                                     <td class="no_urut">{{ $no++ }}</td>
-                                    <td class="wrapper_text">{{ $row->nama_alternatif }}</td>
+                                    <td class="wrapper_text">{{ $row->nama_guru }}</td>
                                     <td>{{ $row->jabatan }}</td>
                                     <td>{{ $row->kelas }}</td>
                                     {{-- <td>{{ \Carbon\Carbon::parse($row->tanggal_lahir)->format('d-m-Y') }}</td> --}}

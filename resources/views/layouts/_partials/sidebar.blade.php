@@ -30,10 +30,10 @@
                 <i class="fas fa-fw fa-code"></i>
                 <span>Data Kriteria</span></a>
         </li>
-        <li class="nav-item {{ request()->Is('alternatif*') ? 'active' : '' }}">
-            <a class="nav-link" href="{{ route('alternatif.index') }}">
+        <li class="nav-item {{ request()->Is('guru*') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ route('guru.index') }}">
                 <i class="fas fa-fw fa-users"></i>
-                <span>Data Guru/Alternatif</span></a>
+                <span>Data Guru</span></a>
         </li>
 
 
@@ -50,13 +50,13 @@
         <li class="nav-item {{ request()->Is('penilaian*') ? 'active' : '' }}">
             <a class="nav-link" href="{{ route('penilaian.index') }}">
                 <i class="fas fa-fw fa-bell"></i>
-                <span>Penilaian</span></a>
+                <span>Penilaian Guru</span></a>
         </li>
 
         <li class="nav-item {{ request()->Is('perhitungan*') ? 'active' : '' }}">
             <a class="nav-link" href="{{ route('perhitungan.index') }}">
                 <i class="fas fa-fw fa-book"></i>
-                <span>Perhitungan</span></a>
+                <span>Hasil Perhitungan</span></a>
         <li class="nav-item {{ request()->Is('laporan*') ? 'active' : '' }}">
             <a class="nav-link" href="{{ route('laporan.index') }}">
                 <i class="fas fa-folder-plus"></i>

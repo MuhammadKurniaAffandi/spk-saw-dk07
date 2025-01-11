@@ -24,7 +24,7 @@
             <!-- Card Header - Accordion -->
             <a href="#listkriteria" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true"
                 aria-controls="collapseCardExample">
-                <h6 class="m-0 font-weight-bold text-primary text-center">RATING KECOCOKAN</h6>
+                <h6 class="m-0 font-weight-bold text-primary text-center">MATRIKS KEPUTUSAN</h6>
             </a>
 
             <!-- Card Content - Collapse -->
@@ -46,10 +46,10 @@
                             </thead>
                             <tbody>
 
-                                @forelse ($laporan['data']['alternatif'] as $key => $value)
+                                @forelse ($laporan['data']['guru'] as $key => $value)
                                     <tr>
                                         <td class="text-left">
-                                            <div class="text-wrap" style="width: 6rem">{{ $value['nama_alternatif'] }}
+                                            <div class="text-wrap" style="width: 6rem">{{ $value['nama_guru'] }}
                                             </div>
                                         </td>
                                         @if (count($value['penilaian']) > 0)
@@ -79,7 +79,7 @@
             <!-- Card Header - Accordion -->
             <a href="#normalisasi" class="d-block card-header py-3" data-toggle="collapse" role="button"
                 aria-expanded="true" aria-controls="collapseCardExample">
-                <h6 class="m-0 font-weight-bold text-primary text-center">NORMALISASI MATRIK</h6>
+                <h6 class="m-0 font-weight-bold text-primary text-center">NORMALISASI MATRIKS</h6>
             </a>
 
             <!-- Card Content - Collapse -->
@@ -141,20 +141,25 @@
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th class="text-bold" style="text-align: center; padding-bottom: 60px" rowspan="2">
+                                    {{-- <th class="text-bold" style="text-align: center; padding-bottom: 60px" rowspan="2">
                                         Nama
                                         Guru</th>
                                     <th class="text-center" colspan="{{ count($laporan['data']['kriteria']) }}">Kriteria Dan
                                         Bobot</th>
                                     <th rowspan="2" style="text-align: center; padding-bottom: 60px">Nilai Akhir</th>
-                                    <th rowspan="2" style="text-align: center; padding-bottom: 60px">Rangking</th>
+                                    <th rowspan="2" style="text-align: center; padding-bottom: 60px">Rangking</th> --}}
+                                    <th class="text-bold text-center">
+                                        Nama
+                                        Guru</th>
+                                    <th class="text-center text-center">Nilai Preferensi</th>
+                                    <th class="text-center text-center">Rangking</th>
                                 </tr>
-                                <tr>
+                                {{-- <tr>
                                     @foreach ($laporan['data']['kriteria'] as $key => $value)
                                         <th class="text-center">
                                             {{ $value['nama_kriteria'] }}<br>{{ round($value['bobot'], 2) }}%</th>
                                     @endforeach
-                                </tr>
+                                </tr> --}}
                             </thead>
                             <tbody>
                                 @php $no = 1;@endphp
@@ -165,9 +170,10 @@
                                             <div class="text-wrap" style="width: 6rem">{{ $key }}
                                             </div>
                                         </td>
-                                        @foreach ($value as $key_1 => $value_1)
+                                        <td class="text-center">{{ round(end($value), 2) }}</td>
+                                        {{-- @foreach ($value as $key_1 => $value_1)
                                             <td class="text-center">{{ round($value_1, 2) }}</td>
-                                        @endforeach
+                                        @endforeach --}}
                                         <td class="text-center">{{ $no++ }}</td>
                                     </tr>
                                 @endforeach

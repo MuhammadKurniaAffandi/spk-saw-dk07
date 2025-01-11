@@ -12,7 +12,7 @@
                 <!-- Card Header - Accordion -->
                 <a href="#tambahcrips" class="d-block card-header py-3" data-toggle="collapse" role="button"
                     aria-expanded="true" aria-controls="collapseCardExample">
-                    <h6 class="m-0 font-weight-bold text-primary">Tambah Sub Kriteria</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Tambah Crips Kriteria</h6>
                 </a>
 
                 <!-- Card Content - Collapse -->
@@ -31,7 +31,7 @@
                             @csrf
                             <input type="hidden" value="{{ $kriteria->id }}" name="kriteria_id">
                             <div class="form-group">
-                                <label for="nama">Rentang Nilai</label>
+                                <label for="nama">Crips Kriteria</label>
                                 <input type="text" class="form-control @error('nama_crips') is-invalid @enderror"
                                     name="nama_crips" value="{{ old('nama_crips') }}" autocomplete="off">
 
@@ -67,7 +67,7 @@
                 <!-- Card Header - Accordion -->
                 <a href="#listcrips" class="d-block card-header py-3" data-toggle="collapse" role="button"
                     aria-expanded="true" aria-controls="collapseCardExample">
-                    <h6 class="m-0 font-weight-bold text-primary">Daftar Sub Kriteria: {{ $kriteria->nama_kriteria }}</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Daftar Crips Kriteria: {{ $kriteria->nama_kriteria }}</h6>
                 </a>
 
                 <!-- Card Content - Collapse -->
@@ -82,7 +82,7 @@
                                 <thead>
                                     <tr class="text-center">
                                         <th>No</th>
-                                        <th>Rentang Nilai</th>
+                                        <th>Crips Kriteria</th>
                                         <th>Bobot</th>
                                         <th>Aksi</th>
                                     </tr>

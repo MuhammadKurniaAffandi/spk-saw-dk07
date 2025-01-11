@@ -15,7 +15,7 @@
                 <!-- Card Header - Accordion -->
                 <a href="#listkriteria" class="d-block card-header py-3" data-toggle="collapse" role="button"
                     aria-expanded="true" aria-controls="collapseCardExample">
-                    <h6 class="m-0 font-weight-bold text-primary">Daftar Laporan</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Daftar Laporan Hasil Pemilihan Guru Terbaik</h6>
                 </a>
 
                 <!-- Card Content - Collapse -->
@@ -35,7 +35,7 @@
                                 <thead class="text-center">
                                     <tr>
                                         <th>No</th>
-                                        <th>Periode Perhitungan</th>
+                                        <th>Periode</th>
                                         {{-- <th>Bobot %</th> --}}
                                         <th>Aksi</th>
                                     </tr>

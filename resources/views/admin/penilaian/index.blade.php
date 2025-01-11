@@ -50,10 +50,10 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @forelse ($alternatif as $alt => $valt)
+                                @forelse ($guru as $alt => $valt)
                                     <tr>
                                         <td>
-                                            <div class="text-wrap" style="width: 6rem">{{ $valt->nama_alternatif }}
+                                            <div class="text-wrap" style="width: 6rem">{{ $valt->nama_guru }}
                                             </div>
                                         </td>
                                         @foreach ($kriteria as $key => $value)

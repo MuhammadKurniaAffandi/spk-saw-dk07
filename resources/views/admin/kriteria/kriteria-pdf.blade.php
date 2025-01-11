@@ -109,7 +109,7 @@
 
         <hr class="garis1" />
         <div style="margin-top: 25px; margin-bottom: 25px;">
-            <center><strong><u>LIST KRITERIA</u></strong></center>
+            <center><strong><u>DAFTAR KRITERIA</u></strong></center>
         </div>
 
         <div class="collapse show" id="listkriteria">
@@ -120,7 +120,7 @@
                             <tr>
                                 <th>No</th>
                                 <th>Nama Kriteria</th>
-                                <th>Attribut</th>
+                                <th>Atribut</th>
                                 <th>Bobot%</th>
                             </tr>
                         </thead>

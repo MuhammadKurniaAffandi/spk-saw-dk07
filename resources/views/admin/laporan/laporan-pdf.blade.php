@@ -112,7 +112,7 @@
 
         <hr class="garis1" />
         <div style="margin-top: 25px; margin-bottom: 25px;">
-            <center><strong><u>RANGKING GURU TERBAIK PERIODE :
+            <center><strong><u>HASIL PEMILIHAN GURU TERBAIK PERIODE :
                         {{ strtoupper($laporan['periode']) }}</u></strong></center>
         </div>
 
@@ -123,16 +123,14 @@
                         <thead>
                             <tr>
                                 <th>Nama Guru</th>
-                                <th>Nilai Akhir</th>
-                                <th>Peringkat</th>
+                                <th>Nilai Preferensi</th>
+                                <th>Rangking</th>
                             </tr>
 
                         </thead>
                         <tbody>
                             @php $no = 1;@endphp
-
                             @foreach ($sortedData as $key => $value)
-                                {{-- {{ dd($sortedData) }} --}}
                                 <tr>
                                     <td class="wrapper_text">{{ $key }}</td>
                                     <td class="no_urut ">{{ round(end($value), 2) }}</td>

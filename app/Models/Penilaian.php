@@ -16,8 +16,8 @@ class Penilaian extends Model
         return $this->belongsTo(Crips::class, 'crips_id');
     }
 
-    public function alternatif()
+    public function guru()
     {
-        return $this->belongsTo(Alternatif::class, 'alternatif_id');
+        return $this->belongsTo(Guru::class, 'guru_id');
     }
 }

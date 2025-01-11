@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Alternatif;
+use App\Models\Guru;
 use App\Models\Kriteria;
 
 class HomeController extends Controller
@@ -25,8 +25,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $alternatif = Alternatif::count();
+        $guru = Guru::count();
         $kriteria = Kriteria::count();
-        return view('admin.home', compact('alternatif','kriteria'));
+        return view('admin.home', compact('guru', 'kriteria'));
     }
 }

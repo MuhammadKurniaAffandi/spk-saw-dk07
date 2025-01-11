@@ -5,14 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Alternatif extends Model
+class Guru extends Model
 {
     use HasFactory;
-    protected $table = 'alternatif';
+    protected $table = 'guru';
     protected $guarded = [];
 
     public function penilaian()
     {
-        return $this->hasMany(Penilaian::class, 'alternatif_id');
+        return $this->hasMany(Penilaian::class, 'guru_id');
     }
 }

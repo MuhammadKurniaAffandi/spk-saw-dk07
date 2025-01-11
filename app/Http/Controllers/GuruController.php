@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Alternatif;
+use App\Models\Guru;
 use App\Models\Penilaian;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Log;
@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Log;
 use Carbon\Carbon;
 use Exception;
 
-class AlternatifController extends Controller
+class GuruController extends Controller
 {
     public function __construct()
     {
@@ -21,15 +21,15 @@ class AlternatifController extends Controller
     public function index()
     {
 
-        $data['alternatif'] = Alternatif::latest()->paginate(10);
-        return view('admin.alternatif.index', $data);
+        $data['guru'] = Guru::latest()->paginate(10);
+        return view('admin.guru.index', $data);
     }
 
     public function store(Request $request)
     {
         $this->validate($request, [
 
-            'nama_alternatif' => 'required|string',
+            'nama_guru' => 'required|string',
             'jabatan' => 'required|string',
             'kelas' => 'required|string',
             // 'tanggal_lahir' => 'required|string',
@@ -38,12 +38,12 @@ class AlternatifController extends Controller
 
         try {
 
-            $alternatif = new Alternatif();
-            $alternatif->nama_alternatif = $request->nama_alternatif;
-            $alternatif->jabatan = $request->jabatan;
-            $alternatif->kelas = $request->kelas;
-            // $alternatif->tanggal_lahir = $request->tanggal_lahir;
-            $alternatif->save();
+            $guru = new Guru();
+            $guru->nama_guru = $request->nama_guru;
+            $guru->jabatan = $request->jabatan;
+            $guru->kelas = $request->kelas;
+            // $guru->tanggal_lahir = $request->tanggal_lahir;
+            $guru->save();
             return back()->with('msg', 'Berhasil Menambahkan Data');
         } catch (Exception $e) {
             Log::emergency("File:" . $e->getFile() . "Line:" . $e->getLine() . "Message:" . $e->getMessage());
@@ -54,8 +54,8 @@ class AlternatifController extends Controller
 
     public function edit($id)
     {
-        $data['alternatif'] = Alternatif::findOrFail($id);
-        return view('admin.alternatif.edit', $data);
+        $data['guru'] = Guru::findOrFail($id);
+        return view('admin.guru.edit', $data);
     }
 
 
@@ -64,7 +64,7 @@ class AlternatifController extends Controller
 
         $this->validate($request, [
 
-            'nama_alternatif' => 'required|string',
+            'nama_guru' => 'required|string',
             'jabatan' => 'required|string',
             'kelas' => 'required|string',
             // 'tanggal_lahir' => 'required|string',
@@ -73,9 +73,9 @@ class AlternatifController extends Controller
 
         try {
 
-            $alternatif = Alternatif::findOrFail($id);
-            $alternatif->update([
-                'nama_alternatif' => $request->nama_alternatif,
+            $guru = Guru::findOrFail($id);
+            $guru->update([
+                'nama_guru' => $request->nama_guru,
                 'jabatan' => $request->jabatan,
                 'kelas' => $request->kelas,
                 // 'tanggal_lahir' => $request->tanggal_lahir
@@ -92,8 +92,8 @@ class AlternatifController extends Controller
 
         try {
 
-            $alternatif = Alternatif::findOrFail($id);
-            $alternatif->delete();
+            $guru = Guru::findOrFail($id);
+            $guru->delete();
             Penilaian::truncate();
         } catch (Exception $e) {
             Log::emergency("File:" . $e->getFile() . "Line:" . $e->getLine() . "Message:" . $e->getMessage());
@@ -106,11 +106,11 @@ class AlternatifController extends Controller
         // setlocale(LC_ALL, 'IND');
         // $tanggal = Carbon::now()->formatLocalized('%d %B %Y');
         $tanggal = Carbon::now()->translatedFormat('d F Y'); // ** Output: "01 Maret 2019" **
-        $alternatif = Alternatif::with('penilaian.crips')->get();
+        $guru = Guru::with('penilaian.crips')->get();
 
-        $pdf = Pdf::loadView('admin.alternatif.alternatif-pdf', compact('alternatif', 'tanggal'));
+        $pdf = Pdf::loadView('admin.guru.guru-pdf', compact('guru', 'tanggal'));
 
         $pdf->setPaper('A4', 'potrait');
-        return $pdf->stream('alternatif.pdf');
+        return $pdf->stream('guru.pdf');
     }
 }

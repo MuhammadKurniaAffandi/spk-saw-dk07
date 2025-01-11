@@ -109,7 +109,7 @@
 
         <hr class="garis1" />
         <div style="margin-top: 25px; margin-bottom: 25px;">
-            <center><strong><u>LIST PENGGUNA</u></strong></center>
+            <center><strong><u>DAFTAR PENGGUNA</u></strong></center>
         </div>
 
         <div class="collapse show" id="listkriteria">
@@ -120,7 +120,7 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Nama User</th>
+                                <th>Nama</th>
                                 <th>Email</th>
                                 {{-- <th>Alamat</th>
                                 <th>Telepon</th> --}}

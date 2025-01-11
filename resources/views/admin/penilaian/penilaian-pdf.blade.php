@@ -33,18 +33,20 @@
         /* custom style table */
         #kop_surat {
             box-sizing: border-box;
+            width: 100%;
+
         }
 
         .box1 {
             float: left;
-            width: 20%;
-            padding-left: 25%;
+            /* width: 20%; */
+            padding-left: 50%;
 
         }
 
         .box2 {
             float: left;
-            width: 70%;
+            /* width: 70%; */
         }
 
         .clearfix::after {
@@ -97,11 +99,11 @@
                 </td>
                 <td class="box2">
                     <center>
-                        <font size="3">PEMERINTAH PROVINSI DAERAH KHUSUS IBUKOTA JAKARTA</font><br>
-                        <font size="3">SDN DURI KEPA 07</font><br>
-                        <font size="2">Jl. Ratu Alamanda Blok A7 Rt.007/013 Kel. Duri Kepa Telp. 021-5653923
+                        <font size="5">PEMERINTAH PROVINSI DAERAH KHUSUS IBUKOTA JAKARTA</font><br>
+                        <font size="5">SDN DURI KEPA 07</font><br>
+                        <font size="3">Jl. Ratu Alamanda Blok A7 Rt.007/013 Kel. Duri Kepa Telp. 021-5653923
                         </font><br>
-                        <font size="2">Kecamatan Kebon Jeruk Kotamadya - Jakarta Barat</font><br>
+                        <font size="3">Kecamatan Kebon Jeruk Kotamadya - Jakarta Barat</font><br>
                     </center>
                 </td>
             </tr>
@@ -109,7 +111,7 @@
 
         <hr class="garis1" />
         <div style="margin-top: 25px; margin-bottom: 25px;">
-            <center><strong><u>LIST PENILAIAN</u></strong></center>
+            <center><strong><u>DAFTAR PENILAIAN GURU</u></strong></center>
         </div>
 
         <div class="collapse show" id="listkriteria">
@@ -120,17 +122,17 @@
                     <table class="table table-striped table-hover" id="DataTable">
                         <thead>
                             <tr>
-                                <th>Nama Alternatif</th>
+                                <th>Nama Guru</th>
                                 @foreach ($kriteria as $key => $value)
                                     <th>{{ $value->nama_kriteria }}</th>
                                 @endforeach
                             </tr>
                         </thead>
                         <tbody>
-                            @forelse ($alternatif as $alt => $valt)
-                                {{-- {{ dd($valt) }} --}}
+                            @forelse ($guru as $alt => $valt)
+
                                 <tr>
-                                    <td class="wrapper_text">{{ $valt->nama_alternatif }}</td>
+                                    <td class="wrapper_text">{{ $valt->nama_guru }}</td>
                                     @if (count($valt->penilaian) > 0)
                                         @foreach ($valt->penilaian as $key => $value)
                                             <td class="no_urut">
