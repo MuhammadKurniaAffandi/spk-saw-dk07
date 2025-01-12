@@ -46,7 +46,7 @@ class PenilaianController extends Controller
                 }
             }
 
-            return back()->with('msg', 'Proses Perhitungan, Berhasil. Silahkan Kunjungi Menu Hasil Perhitungan!');
+            return back()->with('msg', 'Berhasil Menyimpan Data');
         } catch (Exception $e) {
             Log::emergency("File:" . $e->getFile() . "Line:" . $e->getLine() . "Message:" . $e->getMessage());
             die("Gagal");

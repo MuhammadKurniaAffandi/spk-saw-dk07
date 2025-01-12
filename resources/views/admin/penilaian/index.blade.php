@@ -37,8 +37,7 @@
 
                     <form action="{{ route('penilaian.store') }}" method="post">
                         @csrf
-                        <button class="d-sm-inline-block btn btn-sm btn-primary shadow-sm float-left">Proses
-                            Perhitungan</button>
+                        <button class="d-sm-inline-block btn btn-sm btn-primary shadow-sm float-left">Simpan</button>
                         <br><br>
                         <table class="table">
                             <thead>
